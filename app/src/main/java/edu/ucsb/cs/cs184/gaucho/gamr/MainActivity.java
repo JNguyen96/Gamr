@@ -1,6 +1,7 @@
 package edu.ucsb.cs.cs184.gaucho.gamr;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,5 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("MainActivity", "no more cards");
             }
         });
+
+        startActivity(new Intent(MainActivity.this, LoginAcivity.class));
     }
 }

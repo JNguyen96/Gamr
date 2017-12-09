@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Gamr</string>
+    <string name="facebook_app_id">312449825919528</string>
+    <string name="fb_login_protocol_scheme">fb312449825919528</string>
 </resources>
