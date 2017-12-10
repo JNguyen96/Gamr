@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.daprlabs.cardstack.SwipeDeck;
+import com.facebook.AccessToken;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("MainActivity", "no more cards");
             }
         });
-
-        startActivity(new Intent(MainActivity.this, LoginAcivity.class));
+        boolean notLoggedIn = (AccessToken.getCurrentAccessToken() == null);
+        if(notLoggedIn) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        }
+        startActivity(new Intent(MainActivity.this, ProfileActivity.class));
     }
 }

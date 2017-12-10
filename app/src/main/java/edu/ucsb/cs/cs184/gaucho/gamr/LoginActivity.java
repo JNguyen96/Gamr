@@ -4,13 +4,10 @@ package edu.ucsb.cs.cs184.gaucho.gamr;
  * Created by Justin on 12/8/17.
  */
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
-import com.daprlabs.cardstack.SwipeDeck;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -18,10 +15,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-public class LoginAcivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     CallbackManager callbackManager;
 
@@ -61,7 +55,8 @@ public class LoginAcivity extends AppCompatActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        // App code
+                        //TODO: Save login information, if first time logging in, start ProfileActivity
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }
 
                     @Override
