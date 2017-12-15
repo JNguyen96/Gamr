@@ -8,38 +8,38 @@ package com.yuyakaido.android.cardstackview;
 
 public final class R {
     public static final class attr {
-        public static final int bottomOverlay = 0x7f020036;
-        public static final int elevationEnabled = 0x7f02008e;
-        public static final int leftOverlay = 0x7f0200e8;
-        public static final int rightOverlay = 0x7f020118;
-        public static final int scaleDiff = 0x7f02011b;
-        public static final int stackFrom = 0x7f02012d;
-        public static final int swipeDirection = 0x7f020139;
-        public static final int swipeEnabled = 0x7f02013a;
-        public static final int swipeThreshold = 0x7f02013b;
-        public static final int topOverlay = 0x7f020174;
-        public static final int translationDiff = 0x7f020178;
-        public static final int visibleCount = 0x7f02017a;
+        public static final int bottomOverlay = 0x7f030039;
+        public static final int elevationEnabled = 0x7f030093;
+        public static final int leftOverlay = 0x7f0300ef;
+        public static final int rightOverlay = 0x7f030124;
+        public static final int scaleDiff = 0x7f030127;
+        public static final int stackFrom = 0x7f03013b;
+        public static final int swipeDirection = 0x7f030149;
+        public static final int swipeEnabled = 0x7f03014a;
+        public static final int swipeThreshold = 0x7f03014b;
+        public static final int topOverlay = 0x7f030184;
+        public static final int translationDiff = 0x7f030188;
+        public static final int visibleCount = 0x7f03018b;
     }
     public static final class id {
-        public static final int bottom = 0x7f07001d;
-        public static final int card_frame_content_container = 0x7f070024;
-        public static final int card_frame_overlay_container = 0x7f070025;
-        public static final int freedom = 0x7f070055;
-        public static final int freedom_no_bottom = 0x7f070056;
-        public static final int horizontal = 0x7f070059;
-        public static final int top = 0x7f0700b9;
-        public static final int vertical = 0x7f0700be;
+        public static final int bottom = 0x7f080021;
+        public static final int card_frame_content_container = 0x7f080028;
+        public static final int card_frame_overlay_container = 0x7f080029;
+        public static final int freedom = 0x7f080059;
+        public static final int freedom_no_bottom = 0x7f08005a;
+        public static final int horizontal = 0x7f08005d;
+        public static final int top = 0x7f0800c4;
+        public static final int vertical = 0x7f0800cc;
     }
     public static final class layout {
-        public static final int card_container = 0x7f09001e;
-        public static final int card_frame = 0x7f09001f;
+        public static final int card_container = 0x7f0a0020;
+        public static final int card_frame = 0x7f0a0021;
     }
     public static final class string {
-        public static final int app_name = 0x7f0b001f;
+        public static final int app_name = 0x7f0d001f;
     }
     public static final class styleable {
-        public static final int[] CardStackView = { 0x7f020036, 0x7f02008e, 0x7f0200e8, 0x7f020118, 0x7f02011b, 0x7f02012d, 0x7f020139, 0x7f02013a, 0x7f02013b, 0x7f020174, 0x7f020178, 0x7f02017a };
+        public static final int[] CardStackView = { 0x7f030039, 0x7f030093, 0x7f0300ef, 0x7f030124, 0x7f030127, 0x7f03013b, 0x7f030149, 0x7f03014a, 0x7f03014b, 0x7f030184, 0x7f030188, 0x7f03018b };
         public static final int CardStackView_bottomOverlay = 0;
         public static final int CardStackView_elevationEnabled = 1;
         public static final int CardStackView_leftOverlay = 2;

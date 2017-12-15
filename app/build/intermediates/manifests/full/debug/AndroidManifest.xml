@@ -5,10 +5,14 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="19"
         android:targetSdkVersion="25" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" />
 
     <application
         android:allowBackup="true"
@@ -34,6 +38,20 @@
             </intent-filter>
         </activity>
         <activity android:name="edu.ucsb.cs.cs184.gaucho.gamr.ProfileActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="edu.ucsb.cs.cs184.gaucho.gamr.MessagesActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="edu.ucsb.cs.cs184.gaucho.gamr.Slides" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
