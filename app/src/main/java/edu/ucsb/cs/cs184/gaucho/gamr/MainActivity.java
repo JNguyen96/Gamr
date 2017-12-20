@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        DBWrapper.getInstance().updateSale(new Sale());
+      //  DBWrapper.getInstance().updateSale(new Sale());
     }
 
     @Override

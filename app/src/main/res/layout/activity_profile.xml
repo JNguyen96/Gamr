@@ -6,6 +6,12 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/contactButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Contact Infomation" />
+
+    <Button
         android:id="@+id/editButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,9 +23,5 @@
         android:layout_height="wrap_content"
         android:text="Add Game" />
 
-    <!--<Button-->
-        <!--android:id="@+id/messagesButton"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Messages" />-->
+
 </LinearLayout>

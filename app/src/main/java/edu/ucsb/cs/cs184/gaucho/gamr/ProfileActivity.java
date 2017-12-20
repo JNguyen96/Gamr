@@ -26,7 +26,7 @@ public class ProfileActivity extends AppCompatActivity{
 
         Button editButton = (Button)findViewById(R.id.editButton);
         Button addButton = (Button)findViewById(R.id.addButton);
-//        Button messages = (Button)findViewById(R.id.messagesButton);
+        Button contactButton = (Button)findViewById(R.id.contactButton);
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,12 +42,12 @@ public class ProfileActivity extends AppCompatActivity{
             }
         });
 
-//        messages.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+        contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showContactFragment();
+            }
+        });
 
     }
 
@@ -80,5 +80,10 @@ public class ProfileActivity extends AppCompatActivity{
     public static void showAddFragment(){
         AddFragment af = AddFragment.newInstance("","","Add Image");
         af.show(fm, "new add game");
+    }
+
+    public static void showContactFragment(){
+        ContactFragment cf = new ContactFragment();
+        cf.show(fm, "edit contact info");
     }
 }
