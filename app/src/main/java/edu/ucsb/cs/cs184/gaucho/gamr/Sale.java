@@ -12,9 +12,9 @@ public class Sale {
 
     public Sale() {
         id = "POISON";
-        name = "bar";
-        description = "spam and eggs";
-        ownerId = "baz";
+        name = "POISON";
+        description = "POISON";
+        ownerId = "POISON";
     }
 
     public String getId() {

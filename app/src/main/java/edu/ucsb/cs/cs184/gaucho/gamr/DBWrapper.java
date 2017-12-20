@@ -41,26 +41,27 @@ public class DBWrapper {
     public void getUser(String uid, UserTransactionListener listener) {
         User user = new User();
         user.id = uid;
-        db.child("users").addListenerForSingleValueEvent(new LoginUserDatabaseListener(user, listener));
+        db.child("users").addListenerForSingleValueEvent(new LoginUserDatabaseListener(uid, listener));
     }
 
     class LoginUserDatabaseListener implements  ValueEventListener {
-        User user;
+        String uid;
         UserTransactionListener outerListener;
-        public LoginUserDatabaseListener(User user, UserTransactionListener outerListener) {
-            this.user = user;
+        public LoginUserDatabaseListener(String uid, UserTransactionListener outerListener) {
+            this.uid =  uid;
             this.outerListener = outerListener;
         }
 
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
-            if (dataSnapshot.hasChild(user.id)) {
-                Log.i("DBWrapper", "User exists\n");
-                User servervalues = dataSnapshot.child(user.id).getValue(User.class);
-                user.copyFrom(servervalues);
+            User user;
+            if (dataSnapshot.hasChild(uid)) {
+                user = dataSnapshot.child(uid).getValue(User.class);
             }
             else {
-                db.child("users").child(user.id).setValue(user);
+                user = new User();
+                user.id = uid;
+                db.child("users").child(uid).setValue(user);
             }
             outerListener.onComplete(user);
         }
@@ -93,6 +94,8 @@ public class DBWrapper {
             }
         });
     }
+
+
     class GetSaleDatabaseListener implements ValueEventListener {
         String id;
         SaleTransactionListener outerListener;
