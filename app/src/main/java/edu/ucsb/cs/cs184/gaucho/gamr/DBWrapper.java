@@ -8,6 +8,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by william on 12/14/17.
  */
@@ -29,6 +32,9 @@ public class DBWrapper {
         public void onMatch(User other);
     }
 
+    public interface SaleListListener {
+        public void onComplete(List<Sale> sales);
+    }
     private static DBWrapper instance;
     public static DBWrapper getInstance() {
         if (instance == null)
@@ -116,6 +122,10 @@ public class DBWrapper {
         });
     }
 
+    public void getNewSales(User swiper, SaleListListener listener) {
+        db.child("sales").addListenerForSingleValueEvent(new GetNewSalesDatabaseListener(swiper.id, listener));
+    }
+
     class GetSaleDatabaseListener implements ValueEventListener {
         String id;
         SaleTransactionListener outerListener;
@@ -134,6 +144,30 @@ public class DBWrapper {
             else {
                 outerListener.onFailure(SaleTransactionListener.FailureReason.KeyNotFound);
             }
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    }
+    class GetNewSalesDatabaseListener implements ValueEventListener {
+        SaleListListener listener;
+        String ownerId;
+        public GetNewSalesDatabaseListener(String ownerId, SaleListListener listener) {
+            this.listener = listener;
+            this.ownerId = ownerId;
+        }
+
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            ArrayList<Sale> sales = new ArrayList<>();
+            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                Sale s = ds.getValue(Sale.class);
+                if (s.ownerId != ownerId)
+                    sales.add(s);
+            }
+            listener.onComplete(sales);
         }
 
         @Override
