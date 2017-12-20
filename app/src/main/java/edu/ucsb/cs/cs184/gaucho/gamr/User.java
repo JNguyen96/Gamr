@@ -10,9 +10,10 @@ import java.util.List;
 public class User {
     String id;
     List<String> saleIds;
-
+    List<String> swipeIds;
     public User() {
         saleIds = new ArrayList<>();
+        swipeIds = new ArrayList<>();
     }
 
     public String getId() {
@@ -23,9 +24,8 @@ public class User {
         return saleIds;
     }
 
-    public void copyFrom(User other) {
-        this.id = other.id;
-        this.saleIds = other.saleIds;
+    public List<String> getSwipeIds() {
+        return swipeIds;
     }
 
 }

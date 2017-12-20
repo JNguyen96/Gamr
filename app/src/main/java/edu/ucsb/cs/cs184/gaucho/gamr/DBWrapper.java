@@ -25,6 +25,10 @@ public class DBWrapper {
         public void onFailure(FailureReason reason);
     }
 
+    public interface SwipeListener {
+        public void onMatch(User other);
+    }
+
     private static DBWrapper instance;
     public static DBWrapper getInstance() {
         if (instance == null)
@@ -39,9 +43,11 @@ public class DBWrapper {
     }
 
     public void getUser(String uid, UserTransactionListener listener) {
-        User user = new User();
-        user.id = uid;
         db.child("users").addListenerForSingleValueEvent(new LoginUserDatabaseListener(uid, listener));
+    }
+
+    public void updateUser(User user) {
+        db.child("users").child(user.getId()).setValue(user);
     }
 
     class LoginUserDatabaseListener implements  ValueEventListener {
@@ -95,6 +101,20 @@ public class DBWrapper {
         });
     }
 
+    public void swipeYesSale(final User swiper, Sale sale, final SwipeListener listener) {
+        String ownerid = sale.ownerId;
+        swiper.swipeIds.add(ownerid);
+        updateUser(swiper);
+        getUser(ownerid, new UserTransactionListener() {
+            @Override
+            public void onComplete(User user) {
+                if (user.swipeIds.contains(swiper.id)) {
+                    // It's a match!
+                    listener.onMatch(user);
+                }
+            }
+        });
+    }
 
     class GetSaleDatabaseListener implements ValueEventListener {
         String id;
