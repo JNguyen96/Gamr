@@ -22,14 +22,14 @@ public final class R {
         public static final int visibleCount = 0x7f03018b;
     }
     public static final class id {
-        public static final int bottom = 0x7f080021;
-        public static final int card_frame_content_container = 0x7f080028;
-        public static final int card_frame_overlay_container = 0x7f080029;
-        public static final int freedom = 0x7f080059;
-        public static final int freedom_no_bottom = 0x7f08005a;
-        public static final int horizontal = 0x7f08005d;
-        public static final int top = 0x7f0800c4;
-        public static final int vertical = 0x7f0800cc;
+        public static final int bottom = 0x7f080023;
+        public static final int card_frame_content_container = 0x7f08002a;
+        public static final int card_frame_overlay_container = 0x7f08002b;
+        public static final int freedom = 0x7f08005b;
+        public static final int freedom_no_bottom = 0x7f08005c;
+        public static final int horizontal = 0x7f08005f;
+        public static final int top = 0x7f0800c6;
+        public static final int vertical = 0x7f0800ce;
     }
     public static final class layout {
         public static final int card_container = 0x7f0a0020;

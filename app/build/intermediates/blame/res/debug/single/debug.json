@@ -16,12 +16,12 @@
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/layout/abc_action_menu_layout.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout-v11_notification_template_big_media.xml.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/layout-v11/notification_template_big_media.xml"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout-v11_notification_template_big_media.xml.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/layout-v11/notification_template_big_media.xml"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout_abc_popup_menu_item_layout.xml.flat",
@@ -52,20 +52,20 @@
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/layout/notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_com_facebook_button_send_icon_blue.png.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable-xhdpi-v4/com_facebook_button_send_icon_blue.png"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_com_facebook_button_icon_white.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable-hdpi-v4/com_facebook_button_icon_white.png"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_messenger_bubble_large_white.png.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable-hdpi-v4/messenger_bubble_large_white.png"
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_com_facebook_button_send_icon_blue.png.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable-xhdpi-v4/com_facebook_button_send_icon_blue.png"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-hdpi-v4/abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_messenger_bubble_large_white.png.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable-hdpi-v4/messenger_bubble_large_white.png"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_48dp.png.flat",
@@ -116,24 +116,24 @@
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable-xxhdpi-v4/messenger_button_send_round_shadow.png"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-ldrtl-mdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/anim_design_fab_out.xml.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/res/anim/design_fab_out.xml"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-ldrtl-mdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-ldrtl-mdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable_messenger_button_blue_bg_selector.xml.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable/messenger_button_blue_bg_selector.xml"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout_abc_list_menu_item_checkbox.xml.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable_messenger_button_blue_bg_selector.xml.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable/messenger_button_blue_bg_selector.xml"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout-v21_notification_template_custom_big.xml.flat",
@@ -144,40 +144,40 @@
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/drawable-hdpi-v4/com_facebook_button_send_icon_blue.png"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-hdpi-v4/abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/anim_abc_slide_in_bottom.xml.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/anim/abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-hdpi-v4/abc_ic_star_black_36dp.png"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-xhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout_design_navigation_menu.xml.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/res/layout/design_navigation_menu.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-ldrtl-mdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-ldrtl-mdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout_messenger_button_send_white_round.xml.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/layout/messenger_button_send_white_round.xml"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-mdpi-v4/abc_list_selector_disabled_holo_light.9.png"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout_messenger_button_send_white_round.xml.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/layout/messenger_button_send_white_round.xml"
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-ldrtl-mdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-ldrtl-mdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_com_facebook_tooltip_black_bottomnub.png.flat",
@@ -236,24 +236,24 @@
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable/abc_tab_indicator_material.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-v21_avd_show_password.xml.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/res/drawable-v21/avd_show_password.xml"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout_messenger_button_send_blue_large.xml.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/res/layout/messenger_button_send_blue_large.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/generated/res/pngs/debug/drawable-mdpi/ic_launcher_background.png"
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-v21_avd_show_password.xml.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/res/drawable-v21/avd_show_password.xml"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-xxxhdpi-v4/abc_ic_star_black_36dp.png"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout-v11_notification_media_action.xml.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/layout-v11/notification_media_action.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_36dp.png.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-xxxhdpi-v4/abc_ic_star_black_36dp.png"
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/generated/res/pngs/debug/drawable-mdpi/ic_launcher_background.png"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -272,12 +272,12 @@
         "source": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_launcher_background.png"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_light.xml.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/color/abc_primary_text_disable_only_material_light.xml"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-hdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_light.xml.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/color_abc_primary_text_disable_only_material_dark.xml.flat",
@@ -316,12 +316,12 @@
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable/abc_cab_background_top_material.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout_design_bottom_navigation_item.xml.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/res/layout/design_bottom_navigation_item.xml"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-xxxhdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/layout_design_bottom_navigation_item.xml.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/res/layout/design_bottom_navigation_item.xml"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -380,12 +380,12 @@
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/res/anim-v21/design_bottom_sheet_slide_out.xml"
     },
     {
-        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/anim_abc_popup_exit.xml.flat",
-        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/anim/abc_popup_exit.xml"
-    },
-    {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/anim_abc_popup_exit.xml.flat",
+        "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/anim/abc_popup_exit.xml"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -1146,6 +1146,10 @@
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/drawable-xhdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/src/main/res/drawable/ic_launcher_background.xml"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -2018,6 +2022,10 @@
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/color-v11_abc_background_cache_hint_selector_material_light.xml.flat",
         "source": "/Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/menu_edit_menu.xml.flat",
+        "source": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/src/main/res/menu/edit_menu.xml"
     },
     {
         "merged": "/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/res/merged/debug/anim_design_snackbar_in.xml.flat",

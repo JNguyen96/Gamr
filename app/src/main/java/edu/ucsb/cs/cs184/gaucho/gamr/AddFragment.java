@@ -37,11 +37,14 @@ public class AddFragment extends android.app.DialogFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable final Bundle savedInstanceState) {
-        TextView tiltlePrompt = (TextView)view.findViewById(R.id.title);
+        TextView titlePrompt = (TextView)view.findViewById(R.id.title);
         EditText titleRes = (EditText)view.findViewById(R.id.titleRes);
+        titleRes.setText(getArguments().getString("title"));
         TextView desPrompt = (TextView)view.findViewById(R.id.description);
         EditText desRes = (EditText)view.findViewById(R.id.descriptionRes);
+        desRes.setText(getArguments().getString("desc"));
         Button addImage = (Button)view.findViewById(R.id.addImage);
+        addImage.setText(getArguments().getString("buttonTxt"));
         Button save = (Button)view.findViewById(R.id.saveButton);
         Button cancel = (Button)view.findViewById(R.id.cancelButton);
 
@@ -129,5 +132,15 @@ public class AddFragment extends android.app.DialogFragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public static AddFragment newInstance(String title, String description, String buttonTxt){
+        AddFragment af = new AddFragment();
+        Bundle args = new Bundle();
+        args.putString("title",title);
+        args.putString("desc",description);
+        args.putString("buttonTxt", buttonTxt);
+        af.setArguments(args);
+        return af;
     }
 }

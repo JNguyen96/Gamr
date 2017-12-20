@@ -9,19 +9,20 @@ MERGED from [com.daprlabs.aaron:cardstack:0.3.1-beta0] /Users/Justin/.gradle/cac
 MERGED from [com.facebook.android:facebook-android-sdk:4.20.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.20.0.aar/effa0e15152da6bdbfc0e5c42d6ab315/AndroidManifest.xml:21:1-50:12
 MERGED from [com.ramotion.cardslider:card-slider:0.1.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/card-slider-0.1.0.aar/df533618ffde157433634d7e3d29f616/AndroidManifest.xml:2:1-17:12
 MERGED from [com.android.support:cardview-v7:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.4.0.aar/ae2c432c5b25f5adcea332269805ac0e/AndroidManifest.xml:17:1-28:12
+MERGED from [com.azoft.carousellayoutmanager:carousel:1.2.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/carousel-1.2.1.aar/87f81094815cfb4df87aff7dd90ac1e9/AndroidManifest.xml:2:1-14:12
 MERGED from [com.android.support:design:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/Justin/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/4c1846519d5e12aaa700b9587be4c896/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:transition:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/551445cf62e3d8ca58a91dc7e02935c3/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/8d2b7e42e1c42855198e0f6a03a7cf6f/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:customtabs:25.0.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/customtabs-25.0.0.aar/a661fcaa1c70c91d28abf3ee1184cff3/AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:17:1-26:12
 MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/6424902d2ebe20bd05fbd073297ca334/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/f6afac79f8b81cec4c60a1f2b4e9a492/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:17:1-26:12
 MERGED from [com.android.support:support-fragment:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/e86f8955b2006c9437cbe151f240d9b9/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-media-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/dec34256e5e1ac02890fc05f03ba7ce5/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-utils:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/b0c35a394ca0e7cff0b5ee6b405168bc/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/70688ac06c9ab17c5bd133078d111cbd/AndroidManifest.xml:17:1-31:12
 INJECTED from /Users/Justin/AndroidStudioProjects/Final/Gamr/app/src/main/AndroidManifest.xml:2:1-73:12
 INJECTED from /Users/Justin/AndroidStudioProjects/Final/Gamr/app/src/main/AndroidManifest.xml:2:1-73:12
@@ -54,6 +55,8 @@ MERGED from [com.ramotion.cardslider:card-slider:0.1.0] /Users/Justin/.gradle/ca
 MERGED from [com.ramotion.cardslider:card-slider:0.1.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/card-slider-0.1.0.aar/df533618ffde157433634d7e3d29f616/AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support:cardview-v7:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.4.0.aar/ae2c432c5b25f5adcea332269805ac0e/AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:cardview-v7:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.4.0.aar/ae2c432c5b25f5adcea332269805ac0e/AndroidManifest.xml:22:5-26:19
+MERGED from [com.azoft.carousellayoutmanager:carousel:1.2.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/carousel-1.2.1.aar/87f81094815cfb4df87aff7dd90ac1e9/AndroidManifest.xml:12:5-20
+MERGED from [com.azoft.carousellayoutmanager:carousel:1.2.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/carousel-1.2.1.aar/87f81094815cfb4df87aff7dd90ac1e9/AndroidManifest.xml:12:5-20
 MERGED from [com.android.support:design:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:design:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/AndroidManifest.xml:25:5-29:19
@@ -72,12 +75,12 @@ MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/Justin/.
 MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/f6afac79f8b81cec4c60a1f2b4e9a492/AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:support-fragment:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/e86f8955b2006c9437cbe151f240d9b9/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-fragment:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/e86f8955b2006c9437cbe151f240d9b9/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-media-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/dec34256e5e1ac02890fc05f03ba7ce5/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-media-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/dec34256e5e1ac02890fc05f03ba7ce5/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-core-utils:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/b0c35a394ca0e7cff0b5ee6b405168bc/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-core-utils:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/b0c35a394ca0e7cff0b5ee6b405168bc/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/70688ac06c9ab17c5bd133078d111cbd/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/70688ac06c9ab17c5bd133078d111cbd/AndroidManifest.xml:25:5-29:19
 	android:supportsRtl
@@ -178,6 +181,8 @@ MERGED from [com.ramotion.cardslider:card-slider:0.1.0] /Users/Justin/.gradle/ca
 MERGED from [com.ramotion.cardslider:card-slider:0.1.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/card-slider-0.1.0.aar/df533618ffde157433634d7e3d29f616/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:cardview-v7:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.4.0.aar/ae2c432c5b25f5adcea332269805ac0e/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:cardview-v7:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.4.0.aar/ae2c432c5b25f5adcea332269805ac0e/AndroidManifest.xml:20:5-43
+MERGED from [com.azoft.carousellayoutmanager:carousel:1.2.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/carousel-1.2.1.aar/87f81094815cfb4df87aff7dd90ac1e9/AndroidManifest.xml:8:5-10:41
+MERGED from [com.azoft.carousellayoutmanager:carousel:1.2.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/carousel-1.2.1.aar/87f81094815cfb4df87aff7dd90ac1e9/AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:design:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:design:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/42e248e8c87083696d497bdda2975a5a/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/c202c4c84b51ef94af52c49c7c52dc6c/AndroidManifest.xml:21:5-23:78
@@ -190,20 +195,20 @@ MERGED from [com.android.support:support-v4:25.4.0] /Users/Justin/.gradle/caches
 MERGED from [com.android.support:support-v4:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/8d2b7e42e1c42855198e0f6a03a7cf6f/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:customtabs:25.0.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/customtabs-25.0.0.aar/a661fcaa1c70c91d28abf3ee1184cff3/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:customtabs:25.0.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/customtabs-25.0.0.aar/a661fcaa1c70c91d28abf3ee1184cff3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/6424902d2ebe20bd05fbd073297ca334/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/6424902d2ebe20bd05fbd073297ca334/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/f6afac79f8b81cec4c60a1f2b4e9a492/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/f6afac79f8b81cec4c60a1f2b4e9a492/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-fragment:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/e86f8955b2006c9437cbe151f240d9b9/AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-fragment:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/e86f8955b2006c9437cbe151f240d9b9/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-media-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/dec34256e5e1ac02890fc05f03ba7ce5/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-media-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/dec34256e5e1ac02890fc05f03ba7ce5/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-core-utils:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/b0c35a394ca0e7cff0b5ee6b405168bc/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-core-utils:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/b0c35a394ca0e7cff0b5ee6b405168bc/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/70688ac06c9ab17c5bd133078d111cbd/AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/70688ac06c9ab17c5bd133078d111cbd/AndroidManifest.xml:21:5-23:58
 INJECTED from /Users/Justin/AndroidStudioProjects/Final/Gamr/app/src/main/AndroidManifest.xml
@@ -238,20 +243,20 @@ MERGED from [com.android.support:transition:25.3.1] /Users/Justin/.gradle/caches
 MERGED from [com.android.support:transition:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/551445cf62e3d8ca58a91dc7e02935c3/AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-v4:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/8d2b7e42e1c42855198e0f6a03a7cf6f/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-v4:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/8d2b7e42e1c42855198e0f6a03a7cf6f/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/6424902d2ebe20bd05fbd073297ca334/AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/6424902d2ebe20bd05fbd073297ca334/AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/f6afac79f8b81cec4c60a1f2b4e9a492/AndroidManifest.xml:23:9-25:38
 MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/f6afac79f8b81cec4c60a1f2b4e9a492/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Justin/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/4a40e55098f2949a61478efa4a2638c1/AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-fragment:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/e86f8955b2006c9437cbe151f240d9b9/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-fragment:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/e86f8955b2006c9437cbe151f240d9b9/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-media-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/dec34256e5e1ac02890fc05f03ba7ce5/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-media-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/dec34256e5e1ac02890fc05f03ba7ce5/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-core-utils:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/b0c35a394ca0e7cff0b5ee6b405168bc/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-core-utils:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/b0c35a394ca0e7cff0b5ee6b405168bc/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/5da6805dcf5435946ea0aef48c03aa66/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/70688ac06c9ab17c5bd133078d111cbd/AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-compat:25.4.0] /Users/Justin/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/70688ac06c9ab17c5bd133078d111cbd/AndroidManifest.xml:26:9-28:38
 	android:value

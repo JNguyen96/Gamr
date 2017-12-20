@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity{
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(ProfileActivity.this, Slides.class));
             }
         });
 
@@ -78,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity{
     }
 
     public static void showAddFragment(){
-        AddFragment ef = new AddFragment();
-        ef.show(fm, "new edit");
+        AddFragment af = AddFragment.newInstance("","","Add Image");
+        af.show(fm, "new add game");
     }
 }
