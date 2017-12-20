@@ -1,7 +1,0 @@
-#Wed Dec 20 15:37:16 PST 2017
-base.0=/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/transforms/dexMerger/debug/10
-path.1=classes2.dex
-renamed.1=classes2.dex
-path.0=classes.dex
-renamed.0=classes.dex
-base.1=/Users/Justin/AndroidStudioProjects/Final/Gamr/app/build/intermediates/transforms/dexMerger/debug/10
