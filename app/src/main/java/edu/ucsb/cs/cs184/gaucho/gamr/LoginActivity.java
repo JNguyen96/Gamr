@@ -7,6 +7,7 @@ package edu.ucsb.cs.cs184.gaucho.gamr;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -14,6 +15,7 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.squareup.picasso.Picasso;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,10 +23,16 @@ public class LoginActivity extends AppCompatActivity {
 
     LoginButton loginButton;
 
+    ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        imageView = (ImageView)findViewById(R.id.loginImage);
+
+        Picasso.with(getApplicationContext()).load(R.drawable.controller).fit().centerCrop().into(imageView);
 
         callbackManager = CallbackManager.Factory.create();
 

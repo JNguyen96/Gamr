@@ -1,7 +1,9 @@
 package edu.ucsb.cs.cs184.gaucho.gamr;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -23,6 +25,7 @@ import android.widget.TextView;
  */
 public class AddFragment extends android.app.DialogFragment {
 
+    final int ACTIVITY_SELECT_IMAGE = 4;
     String titleText = "";
     String desText = "";
 
@@ -60,6 +63,13 @@ public class AddFragment extends android.app.DialogFragment {
             }
         });
 
+        addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LaunchGallery();
+            }
+        });
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +88,11 @@ public class AddFragment extends android.app.DialogFragment {
             }
         });
 
+    }
+
+    public void LaunchGallery() {
+        Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
     }
 
 
