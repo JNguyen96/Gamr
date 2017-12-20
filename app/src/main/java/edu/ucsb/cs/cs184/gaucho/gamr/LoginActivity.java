@@ -7,6 +7,7 @@ package edu.ucsb.cs.cs184.gaucho.gamr;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.facebook.CallbackManager;
@@ -46,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
+                Log.i("Loginactivity", String.format("id is %s\n", loginResult.getAccessToken().getUserId()));
             }
 
             @Override

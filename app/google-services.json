@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "297512870397",
+    "firebase_url": "https://gamr-7f39e.firebaseio.com",
+    "project_id": "gamr-7f39e",
+    "storage_bucket": "gamr-7f39e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297512870397:android:7e1d1fe306b977e6",
+        "android_client_info": {
+          "package_name": "edu.ucsb.cs.cs184.gaucho.gamr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297512870397-rsun8k0fq3algf2c4vsu5k4m4lh027b2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ucsb.cs.cs184.gaucho.gamr",
+            "certificate_hash": "7fe1387d3aa646e6e75d504ac8308d86e557d90c"
+          }
+        },
+        {
+          "client_id": "297512870397-13lu5epuuhhs85golufd6t3bo4qggigu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtJcUNYVL7AvkA7ZDwe0I3_ZAe2L5etDM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297512870397-13lu5epuuhhs85golufd6t3bo4qggigu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
