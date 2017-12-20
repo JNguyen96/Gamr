@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 
 import com.daprlabs.cardstack.SwipeDeck;
 import com.facebook.AccessToken;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         titles.add("incan");
         adapter = new SwipeDeckAdapter(titles, testData, this);
         cardStack.setAdapter(adapter);
-
+        FirebaseDatabase.getInstance().getReference().child("foo").setValue("baz");
         cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
             @Override
             public void cardSwipedLeft(int position) {
