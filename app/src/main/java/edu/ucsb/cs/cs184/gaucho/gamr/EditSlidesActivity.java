@@ -22,8 +22,10 @@ import android.widget.TextView;
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
+import com.facebook.AccessToken;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Justin on 12/9/17.
@@ -33,7 +35,9 @@ public class EditSlidesActivity extends AppCompatActivity {
 
     public static int currentHolderPos = 0;
     private ArrayList<String> titles = new ArrayList<>();
-    private ArrayList<String> desciptions = new ArrayList<>();
+    private ArrayList<String> descriptions = new ArrayList<>();
+    private ArrayList<String> saleIDs = new ArrayList<>();
+    private String saleId;
     public static RecyclerView recyclerView;
 
     @Override
@@ -47,16 +51,34 @@ public class EditSlidesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        recyclerView.addOnScrollListener(new CenterScrollListener());
-        recyclerView.setAdapter(new TestAdapter(titles,desciptions));
-        layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
-
-        DBWrapper.UserTransactionListener userTransactionListener = new DBWrapper.UserTransactionListener(){
+        DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(),new DBWrapper.UserTransactionListener(){
             @Override
             public void onComplete(User user){
+                saleIDs = (ArrayList<String>)user.getSaleIds();
+                for(String id:saleIDs) {
+                    DBWrapper.getInstance().getSale(id, new DBWrapper.SaleTransactionListener() {
+                        @Override
+                        public void onComplete(Sale sale) {
+                            titles.add(sale.getName());
+                            descriptions.add(sale.getDescription());
+                            Log.d("TITLES ARRAY", titles.toString());
+                            recyclerView.addOnScrollListener(new CenterScrollListener());
+                            recyclerView.setAdapter(new TestAdapter(titles,descriptions));
+                            layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+                        }
+
+                        @Override
+                        public void onFailure(FailureReason reason) {
+
+                        }
+                    });
+                }
 
             }
-        };
+        });
+
+
+
     }
 
     private static final class TestAdapter extends RecyclerView.Adapter<EditSlidesActivity.TestViewHolder> {
@@ -136,9 +158,8 @@ public class EditSlidesActivity extends AppCompatActivity {
 
             case R.id.action_edit:
                 FragmentManager fm = (FragmentManager)getFragmentManager();
-                Log.d("ARRAY POS", currentHolderPos + "");
 
-                AddFragment addFragment = AddFragment.newInstance("","","Change Image", null);//titles[currentHolderPos], desciptions[currentHolderPos], "Change Image");
+                AddFragment addFragment = AddFragment.newInstance("","","Change Image", null);
 
                 addFragment.show(fm, "new edit game");
 

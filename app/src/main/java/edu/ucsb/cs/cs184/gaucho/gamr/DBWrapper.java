@@ -165,7 +165,7 @@ public class DBWrapper {
             ArrayList<Sale> sales = new ArrayList<>();
             for (DataSnapshot ds : dataSnapshot.getChildren()) {
                 Sale s = ds.getValue(Sale.class);
-                if (s.ownerId != owner.id && !owner.getSeenSaleIds().contains(s.id))
+                if (!s.ownerId.equals(owner.id) && !owner.getSeenSaleIds().contains(s.id))
                     sales.add(s);
             }
             listener.onComplete(sales);

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private SwipeDeck cardStack;
     private Context context = this;
 
-    private SwipeDeckAdapter adapter;
+    // private SwipeDeckAdapter adapter;
     private HashMap<String,String> testData;
     private ArrayList<String> titles;
 
@@ -34,44 +34,26 @@ public class MainActivity extends AppCompatActivity {
         titles = new ArrayList<>();
         final User currUser = new User();
 
-        DBWrapper.UserTransactionListener utl = new DBWrapper.UserTransactionListener() {
+        final SwipeDeckAdapter adapter = new SwipeDeckAdapter(this);
+
+        DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
             @Override
             public void onComplete(User user) {
-                currUser.id = user.getId();
-                currUser.saleIds = user.getSaleIds();
-                currUser.seenSaleIds = user.getSeenSaleIds();
+                DBWrapper.getInstance().getNewSales(user, new DBWrapper.SaleListListener() {
+                    @Override
+                    public void onComplete(List<Sale> sales) {
+                        ArrayList<String> titles = new ArrayList<>(sales.size());
+                        ArrayList<String> descriptions = new ArrayList<>(sales.size());
+                        for (int i = 0; i < sales.size(); i++) {
+                            titles.add(sales.get(i).name);
+                            descriptions.add(sales.get(i).description);
+                        }
+                        adapter.updateItems(titles, descriptions);
+                    }
+                });
             }
-        };
-        DBWrapper.SaleListListener sll = new DBWrapper.SaleListListener() {
-            @Override
-            public void onComplete(List<Sale> sales) {
-                for(Sale sale:sales){
-//                    for(String id:currUser.getSeenSaleIds()) {
-//                        if (!(id.equals(sale.getId()))) {
-                            testData.put(sale.getName(), sale.getDescription());
-                            titles.add(sale.getName());
-//                        }
-//                    }
-                }
-            }
-        };
+        });
 
-        DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(),utl);
-
-        DBWrapper.getInstance().getNewSales(currUser,sll);
-
-
-//        testData.put("jenga", "stack it");
-//        titles.add("jenga");
-//        testData.put("monopoly", "hours of fun");
-//        titles.add("monopoly");
-//        testData.put("life", "is hard");
-//        titles.add("life");
-//        testData.put("stratego", "bombs");
-//        titles.add("stratego");
-//        testData.put("incan", "always in");
-//        titles.add("incan");
-        adapter = new SwipeDeckAdapter(titles, testData, this);
         cardStack.setAdapter(adapter);
         cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
             @Override

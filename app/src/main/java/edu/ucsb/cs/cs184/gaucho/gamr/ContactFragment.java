@@ -57,6 +57,10 @@ public class ContactFragment extends android.app.DialogFragment {
                     phoneRes.setText(user.phone);
                 if (emailRes.getText().length() == 0)
                     emailRes.setText(user.email);
+                if(fNameRes.getText().length() == 0)
+                    fNameRes.setText(user.fName);
+                if(lNameRes.getText().length() == 0)
+                    lNameRes.setText(user.lName);
             }
         });
 
