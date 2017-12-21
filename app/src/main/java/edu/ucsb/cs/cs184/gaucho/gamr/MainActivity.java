@@ -39,21 +39,20 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(User user) {
                 currUser.id = user.getId();
                 currUser.saleIds = user.getSaleIds();
-                currUser.swipeIds = user.getSwipeIds();
-
+                currUser.seenSaleIds = user.getSeenSaleIds();
             }
         };
         DBWrapper.SaleListListener sll = new DBWrapper.SaleListListener() {
             @Override
             public void onComplete(List<Sale> sales) {
-                Log.d("SWIPE IDS", currUser.getSwipeIds().toString());
+                Log.d("SWIPE IDS", currUser.getSeenSaleIds().toString());
                 for(Sale sale:sales){
-//                    for(String id:currUser.getSwipeIds()) {
-//                        if (!(id == sale.getId())) {
+                    for(String id:currUser.getSeenSaleIds()) {
+                        if (!(id.equals(sale.getId()))) {
                             testData.put(sale.getName(), sale.getDescription());
                             titles.add(sale.getName());
-//                        }
-//                    }
+                        }
+                    }
                 }
             }
         };

@@ -14,10 +14,10 @@ public class User {
     String phone;
     String email;
     List<String> saleIds;
-    List<String> swipeIds;
+    List<String> seenSaleIds;
     public User() {
         saleIds = new ArrayList<>();
-        swipeIds = new ArrayList<>();
+        seenSaleIds = new ArrayList<>();
     }
 
     public String getId() {
@@ -28,8 +28,8 @@ public class User {
         return saleIds;
     }
 
-    public List<String> getSwipeIds() {
-        return swipeIds;
+    public List<String> getSeenSaleIds() {
+        return seenSaleIds;
     }
 
     public String getfName() {

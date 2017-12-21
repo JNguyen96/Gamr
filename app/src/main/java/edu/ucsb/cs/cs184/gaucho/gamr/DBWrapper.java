@@ -110,12 +110,12 @@ public class DBWrapper {
     }
     public void swipeYesSale(final User swiper, Sale sale, final SwipeListener listener) {
         String ownerid = sale.ownerId;
-        swiper.swipeIds.add(ownerid);
+        swiper.seenSaleIds.add(ownerid);
         updateUser(swiper);
         getUser(ownerid, new UserTransactionListener() {
             @Override
             public void onComplete(User user) {
-                if (user.swipeIds.contains(swiper.id)) {
+                if (user.seenSaleIds.contains(swiper.id)) {
                     // It's a match!
                     listener.onMatch(user);
                 }
@@ -124,7 +124,7 @@ public class DBWrapper {
     }
 
     public void getNewSales(User swiper, SaleListListener listener) {
-        db.child("sales").addListenerForSingleValueEvent(new GetNewSalesDatabaseListener(swiper.id, listener));
+        db.child("sales").addListenerForSingleValueEvent(new GetNewSalesDatabaseListener(swiper, listener));
     }
 
     class GetSaleDatabaseListener implements ValueEventListener {
@@ -154,10 +154,10 @@ public class DBWrapper {
     }
     class GetNewSalesDatabaseListener implements ValueEventListener {
         SaleListListener listener;
-        String ownerId;
-        public GetNewSalesDatabaseListener(String ownerId, SaleListListener listener) {
+        User owner;
+        public GetNewSalesDatabaseListener(User owner, SaleListListener listener) {
             this.listener = listener;
-            this.ownerId = ownerId;
+            this.owner = owner;
         }
 
         @Override
@@ -165,7 +165,7 @@ public class DBWrapper {
             ArrayList<Sale> sales = new ArrayList<>();
             for (DataSnapshot ds : dataSnapshot.getChildren()) {
                 Sale s = ds.getValue(Sale.class);
-                if (s.ownerId != ownerId)
+                if (s.ownerId != owner.id && !owner.getSeenSaleIds().contains(s.id))
                     sales.add(s);
             }
             listener.onComplete(sales);
