@@ -35,6 +35,11 @@ public class DBWrapper {
     public interface SaleListListener {
         public void onComplete(List<Sale> sales);
     }
+
+    public interface UserListListener {
+        public void onComplete(List<User> users);
+    }
+
     private static DBWrapper instance;
     public static DBWrapper getInstance() {
         if (instance == null)
@@ -118,10 +123,20 @@ public class DBWrapper {
             public void onComplete(User user) {
                 if (user.getSwipedUserIds().contains(swiper.id)) {
                     // It's a match!
+                    if (!user.getMatchIds().contains(swiper.id))
+                        user.matchIds.add(swiper.id);
+                    if (!swiper.getMatchIds().contains(user.id))
+                        swiper.matchIds.add(user.id);
+                        updateUser(user);
+                    updateUser(swiper);
                     listener.onMatch(user);
                 }
             }
         });
+    }
+
+    public void getUserMatches(User user, UserListListener listener) {
+
     }
 
     public void getNewSales(User swiper, SaleListListener listener) {

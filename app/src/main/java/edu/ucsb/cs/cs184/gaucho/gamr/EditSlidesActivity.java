@@ -22,6 +22,11 @@ import android.widget.TextView;
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
+import com.facebook.AccessToken;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by Justin on 12/9/17.
@@ -30,10 +35,8 @@ import com.azoft.carousellayoutmanager.CenterScrollListener;
 public class EditSlidesActivity extends AppCompatActivity {
 
     public static int currentHolderPos = 0;
-    private final String[] titles = {"Halo", "COD: WWII", "Assassins Creed", "Battlefront"};
-    private final String[] desciptions = {"Master Chef", "1v1 QuickScopes", "Fall Damage", "Loot Boxes"};
     public static RecyclerView recyclerView;
-
+    Sale currentItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,34 +49,34 @@ public class EditSlidesActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         recyclerView.addOnScrollListener(new CenterScrollListener());
-        recyclerView.setAdapter(new TestAdapter(titles,desciptions));
+        recyclerView.setAdapter(new TestAdapter());
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
     }
 
-    private static final class TestAdapter extends RecyclerView.Adapter<EditSlidesActivity.TestViewHolder> {
+    private final class TestAdapter extends RecyclerView.Adapter<EditSlidesActivity.TestViewHolder> {
+        List<Sale> saleItems;
 
-        @SuppressWarnings("UnsecureRandomNumberGeneration")
-//        private final Random mRandom = new Random();
-//        private final int[] mColors;
-//        private final int[] mPosition;
-        private static int mItemsCount;
-        private static String[] titles;
-        private static String[] descriptions;
+        TestAdapter() {
+            saleItems = new CopyOnWriteArrayList<>();
+            DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
+                @Override
+                public void onComplete(User user) {
+                    for (String saleId : user.getSaleIds()) {
+                        DBWrapper.getInstance().getSale(saleId, new DBWrapper.SaleTransactionListener() {
+                            @Override
+                            public void onComplete(Sale sale) {
+                                saleItems.add(sale);
+                                recyclerView.getAdapter().notifyDataSetChanged();
+                            }
 
+                            @Override
+                            public void onFailure(FailureReason reason) {
 
-        TestAdapter(String[] titles, String[] descriptions) {
-//            mColors = new int[mItemsCount];
-//            mPosition = new int[mItemsCount];
-//            for (int i = 0; mItemsCount > i; ++i) {
-//                //noinspection MagicNumber
-//                mColors[i] = Color.argb(255, mRandom.nextInt(256), mRandom.nextInt(256), mRandom.nextInt(256));
-//                mPosition[i] = i;
-//            }
-            TestAdapter.titles = titles;
-            TestAdapter.descriptions = descriptions;
-            TestAdapter.mItemsCount = titles.length;
-
-
+                            }
+                        });
+                    }
+                }
+            });
         }
 
         @Override
@@ -85,22 +88,15 @@ public class EditSlidesActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
-            holder.title.setText(titles[position]);
-            holder.desc.setText(descriptions[position]);
-//            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//                @Override
-//                public void onScrolled(RecyclerView recView, int x, int y) {
-//                    Toast.makeText(recyclerView.getContext(), this.toString(), Toast.LENGTH_SHORT).show();
-//                    Log.d("POSITION", "" + holder.getAdapterPosition());
-//                    currentHolderPos = holder.getAdapterPosition();
-//                }
-//            });
-
+            holder.title.setText(saleItems.get(position).name);
+            holder.desc.setText(saleItems.get(position).getDescription());
+            currentHolderPos = holder.getAdapterPosition();
+            currentItem = saleItems.get(position);
         }
 
         @Override
         public int getItemCount() {
-            return mItemsCount;
+            return saleItems.size();
         }
     }
 
@@ -139,8 +135,7 @@ public class EditSlidesActivity extends AppCompatActivity {
                 FragmentManager fm = (FragmentManager)getFragmentManager();
                 Log.d("ARRAY POS", currentHolderPos + "");
 
-                AddFragment addFragment = AddFragment.newInstance("","","Change Image", null);//titles[currentHolderPos], desciptions[currentHolderPos], "Change Image");
-
+                AddFragment addFragment = AddFragment.newInstance(currentItem.name, currentItem.getDescription(),"Change Image", currentItem.getId());
                 addFragment.show(fm, "new edit game");
 
                 return true;

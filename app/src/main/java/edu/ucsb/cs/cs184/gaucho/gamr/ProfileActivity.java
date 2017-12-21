@@ -85,7 +85,6 @@ public class ProfileActivity extends AppCompatActivity{
     }
 
     public static void showContactFragment(){
-
         ContactFragment cf = ContactFragment.newInstance("", "", "","",AccessToken.getCurrentAccessToken().getUserId());
         cf.show(fm, "edit contact info");
     }
