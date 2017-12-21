@@ -92,8 +92,7 @@ public class Slides extends AppCompatActivity {
         @Override
         public TestViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
             CardView cv = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view,parent,false);
-            TestViewHolder tvh = new TestViewHolder(cv);
-
+            final TestViewHolder tvh = new TestViewHolder(cv);
             return tvh;
         }
 
@@ -101,6 +100,14 @@ public class Slides extends AppCompatActivity {
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
             holder.title.setText(titles[position]);
             holder.desc.setText(descriptions[position]);
+//            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//                @Override
+//                public void onScrolled(RecyclerView recView, int x, int y) {
+//                    Toast.makeText(recyclerView.getContext(), this.toString(), Toast.LENGTH_SHORT).show();
+//                    Log.d("POSITION", "" + holder.getAdapterPosition());
+//                    currentHolderPos = holder.getAdapterPosition();
+//                }
+//            });
 
         }
 
@@ -122,14 +129,6 @@ public class Slides extends AppCompatActivity {
             title = (TextView)cv.findViewById(R.id.textView);
             desc = (TextView)cv.findViewById(R.id.textView2);
             img = (ImageView)cv.findViewById(R.id.imageView);
-//            recyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-//                @Override
-//                public void onScrollChange(View v, int x, int y, int oldX, int oldY) {
-//                    Toast.makeText(recyclerView.getContext(), this.toString(), Toast.LENGTH_SHORT).show();
-//                    Log.d("POSITION", "" + getAdapterPosition());
-//                    currentHolderPos = getAdapterPosition();
-//                }
-//            });
         }
 
     }
@@ -152,7 +151,7 @@ public class Slides extends AppCompatActivity {
             case R.id.action_edit:
                 FragmentManager fm = (FragmentManager)getFragmentManager();
                 Log.d("ARRAY POS", currentHolderPos + "");
-                AddFragment addFragment = AddFragment.newInstance(titles[currentHolderPos], desciptions[currentHolderPos], "Change Image");
+                AddFragment addFragment = AddFragment.newInstance("","","Change Image");//titles[currentHolderPos], desciptions[currentHolderPos], "Change Image");
                 addFragment.show(fm, "new edit game");
 
                 return true;
