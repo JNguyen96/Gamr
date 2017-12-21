@@ -106,7 +106,7 @@ public class DBWrapper {
         getUser(sale.ownerId, new UserTransactionListener() {
             @Override
             public void onComplete(User user) {
-                if (!user.saleIds.contains(sale.ownerId)) {
+                if (!user.saleIds.contains(sale.id)) {
                     user.saleIds.add(sale.id);
                     updateUser(user);
                 }

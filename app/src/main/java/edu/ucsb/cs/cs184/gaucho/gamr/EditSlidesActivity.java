@@ -27,6 +27,10 @@ import com.facebook.AccessToken;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import com.facebook.AccessToken;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Justin on 12/9/17.
@@ -36,12 +40,12 @@ public class EditSlidesActivity extends AppCompatActivity {
 
     public static int currentHolderPos = 0;
     public static RecyclerView recyclerView;
-    Sale currentItem;
+    List<Sale> saleItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slides);
-
+        saleItems = new CopyOnWriteArrayList<>();
         final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, false);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -51,13 +55,16 @@ public class EditSlidesActivity extends AppCompatActivity {
         recyclerView.addOnScrollListener(new CenterScrollListener());
         recyclerView.setAdapter(new TestAdapter());
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+        layoutManager.addOnItemSelectionListener(new CarouselLayoutManager.OnCenterItemSelectionListener() {
+            @Override
+            public void onCenterItemChanged(int adapterPosition) {
+                currentHolderPos = adapterPosition;
+            }
+        });
     }
 
     private final class TestAdapter extends RecyclerView.Adapter<EditSlidesActivity.TestViewHolder> {
-        List<Sale> saleItems;
-
         TestAdapter() {
-            saleItems = new CopyOnWriteArrayList<>();
             DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
                 @Override
                 public void onComplete(User user) {
@@ -90,8 +97,6 @@ public class EditSlidesActivity extends AppCompatActivity {
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
             holder.title.setText(saleItems.get(position).name);
             holder.desc.setText(saleItems.get(position).getDescription());
-            currentHolderPos = holder.getAdapterPosition();
-            currentItem = saleItems.get(position);
         }
 
         @Override
@@ -101,7 +106,6 @@ public class EditSlidesActivity extends AppCompatActivity {
     }
 
     private static class TestViewHolder extends RecyclerView.ViewHolder {
-
         public CardView mCardView;
         public TextView title;
         public TextView desc;
@@ -133,8 +137,7 @@ public class EditSlidesActivity extends AppCompatActivity {
 
             case R.id.action_edit:
                 FragmentManager fm = (FragmentManager)getFragmentManager();
-                Log.d("ARRAY POS", currentHolderPos + "");
-
+                Sale currentItem = saleItems.get(currentHolderPos);
                 AddFragment addFragment = AddFragment.newInstance(currentItem.name, currentItem.getDescription(),"Change Image", currentItem.getId());
                 addFragment.show(fm, "new edit game");
 

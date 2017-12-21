@@ -100,9 +100,6 @@ public class AddFragment extends android.app.DialogFragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("TITLE", titleText);
-                Log.d("DESCRIPTION", desText);
-                //TODO: Save title, description, and image to SQLite DB
                 Sale sale = new Sale();
                 sale.id = serverId;
                 sale.description = desText;
