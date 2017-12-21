@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,11 +43,16 @@ public class AddFragment extends android.app.DialogFragment {
         TextView titlePrompt = (TextView)view.findViewById(R.id.title);
         EditText titleRes = (EditText)view.findViewById(R.id.titleRes);
         titleRes.setText(getArguments().getString("title"));
+        titleText = titleRes.getText().toString();
+
         TextView desPrompt = (TextView)view.findViewById(R.id.description);
         EditText desRes = (EditText)view.findViewById(R.id.descriptionRes);
         desRes.setText(getArguments().getString("desc"));
+        desText = desRes.getText().toString();
+
         Button addImage = (Button)view.findViewById(R.id.addImage);
         addImage.setText(getArguments().getString("buttonTxt"));
+
         Button save = (Button)view.findViewById(R.id.saveButton);
         Button cancel = (Button)view.findViewById(R.id.cancelButton);
 
@@ -65,7 +73,22 @@ public class AddFragment extends android.app.DialogFragment {
                 titleText = editable.toString();
             }
         });
+        desRes.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                desText = editable.toString();
+            }
+        });
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,12 +96,19 @@ public class AddFragment extends android.app.DialogFragment {
             }
         });
 
+        final String serverId = getArguments().getString("serverId");
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("TITLE", titleText);
                 Log.d("DESCRIPTION", desText);
                 //TODO: Save title, description, and image to SQLite DB
+                Sale sale = new Sale();
+                sale.id = serverId;
+                sale.description = desText;
+                sale.ownerId = AccessToken.getCurrentAccessToken().getUserId();
+                sale.name = titleText;
+                DBWrapper.getInstance().updateSale(sale);
                 dismiss();
             }
         });
@@ -134,12 +164,14 @@ public class AddFragment extends android.app.DialogFragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public static AddFragment newInstance(String title, String description, String buttonTxt){
+
+    public static AddFragment newInstance(String title, String description, String buttonTxt, String serverId){
         AddFragment af = new AddFragment();
         Bundle args = new Bundle();
         args.putString("title",title);
         args.putString("desc",description);
         args.putString("buttonTxt", buttonTxt);
+        args.putString("serverId", serverId);
         af.setArguments(args);
         return af;
     }
