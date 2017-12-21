@@ -110,12 +110,12 @@ public class DBWrapper {
     }
     public void swipeYesSale(final User swiper, Sale sale, final SwipeListener listener) {
         String ownerid = sale.ownerId;
-        swiper.swipeIds.add(ownerid);
+        swiper.seenSaleIds.add(ownerid);
         updateUser(swiper);
         getUser(ownerid, new UserTransactionListener() {
             @Override
             public void onComplete(User user) {
-                if (user.swipeIds.contains(swiper.id)) {
+                if (user.seenSaleIds.contains(swiper.id)) {
                     // It's a match!
                     listener.onMatch(user);
                 }
@@ -165,8 +165,8 @@ public class DBWrapper {
             ArrayList<Sale> sales = new ArrayList<>();
             for (DataSnapshot ds : dataSnapshot.getChildren()) {
                 Sale s = ds.getValue(Sale.class);
-                if (s.ownerId != owner.id && !owner.getSwipeIds().contains(s.id))
-                    sales.add(s);                 
+                if (s.ownerId != owner.id && !owner.getSeenSaleIds().contains(s.id))
+                    sales.add(s);
             }
             listener.onComplete(sales);
         }
