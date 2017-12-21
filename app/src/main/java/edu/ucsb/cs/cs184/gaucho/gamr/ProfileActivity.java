@@ -78,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity{
     }
 
     public static void showAddFragment(){
-        AddFragment af = AddFragment.newInstance("","","Add Image");
+        AddFragment af = AddFragment.newInstance("","","Add Image", null);
         af.show(fm, "new add game");
     }
 

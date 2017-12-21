@@ -89,24 +89,25 @@ public class DBWrapper {
     }
 
     public void updateSale(Sale sale) {
-        final Sale closure = sale;
-        getSale(sale.id, new SaleTransactionListener() {
-            @Override
-            public void onComplete(Sale sale) {
-                db.child("sales").child(sale.id).setValue(sale);
-            }
+        if (sale.id == null) {
+            sale.id = db.child("sales").push().getKey();
+        }
+        Log.d("DBWrapper", String.format("Writing item %s with id %s\n", sale.name, sale.id));
+        db.child("sales").child(sale.id).setValue(sale);
+        addSaletoUser(sale);
+    }
 
+    private void addSaletoUser(final Sale sale) {
+        getUser(sale.ownerId, new UserTransactionListener() {
             @Override
-            public void onFailure(FailureReason reason) {
-                if (reason == FailureReason.KeyNotFound) {
-                    String key = db.child("sales").push().getKey();
-                    closure.id = key;
-                    db.child("sales").child(key).setValue(closure);
+            public void onComplete(User user) {
+                if (!user.saleIds.contains(sale.ownerId)) {
+                    user.saleIds.add(sale.id);
+                    updateUser(user);
                 }
             }
         });
     }
-
     public void swipeYesSale(final User swiper, Sale sale, final SwipeListener listener) {
         String ownerid = sale.ownerId;
         swiper.swipeIds.add(ownerid);
