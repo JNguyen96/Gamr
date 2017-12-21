@@ -26,6 +26,11 @@ import com.facebook.AccessToken;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import com.facebook.AccessToken;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Justin on 12/9/17.
@@ -34,67 +39,51 @@ import java.util.List;
 public class EditSlidesActivity extends AppCompatActivity {
 
     public static int currentHolderPos = 0;
-    private ArrayList<String> titles = new ArrayList<>();
-    private ArrayList<String> descriptions = new ArrayList<>();
-    private ArrayList<String> saleIDs = new ArrayList<>();
-    private String saleId;
     public static RecyclerView recyclerView;
-
+    List<Sale> saleItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slides);
-
+        saleItems = new CopyOnWriteArrayList<>();
         final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, false);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(),new DBWrapper.UserTransactionListener(){
+        recyclerView.addOnScrollListener(new CenterScrollListener());
+        recyclerView.setAdapter(new TestAdapter());
+        layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+        layoutManager.addOnItemSelectionListener(new CarouselLayoutManager.OnCenterItemSelectionListener() {
             @Override
-            public void onComplete(User user){
-                saleIDs = (ArrayList<String>)user.getSaleIds();
-                for(String id:saleIDs) {
-                    DBWrapper.getInstance().getSale(id, new DBWrapper.SaleTransactionListener() {
-                        @Override
-                        public void onComplete(Sale sale) {
-                            titles.add(sale.getName());
-                            descriptions.add(sale.getDescription());
-                            Log.d("TITLES ARRAY", titles.toString());
-                            recyclerView.addOnScrollListener(new CenterScrollListener());
-                            recyclerView.setAdapter(new TestAdapter(titles,descriptions));
-                            layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
-                        }
-
-                        @Override
-                        public void onFailure(FailureReason reason) {
-
-                        }
-                    });
-                }
-
+            public void onCenterItemChanged(int adapterPosition) {
+                currentHolderPos = adapterPosition;
             }
         });
-
-
-
     }
 
-    private static final class TestAdapter extends RecyclerView.Adapter<EditSlidesActivity.TestViewHolder> {
+    private final class TestAdapter extends RecyclerView.Adapter<EditSlidesActivity.TestViewHolder> {
+        TestAdapter() {
+            DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
+                @Override
+                public void onComplete(User user) {
+                    for (String saleId : user.getSaleIds()) {
+                        DBWrapper.getInstance().getSale(saleId, new DBWrapper.SaleTransactionListener() {
+                            @Override
+                            public void onComplete(Sale sale) {
+                                saleItems.add(sale);
+                                recyclerView.getAdapter().notifyDataSetChanged();
+                            }
 
-        private static int mItemsCount;
-        private static ArrayList<String> titles;
-        private static ArrayList<String> descriptions;
+                            @Override
+                            public void onFailure(FailureReason reason) {
 
-
-        TestAdapter(ArrayList<String> titles, ArrayList<String> descriptions) {
-
-            TestAdapter.titles = titles;
-            TestAdapter.descriptions = descriptions;
-            TestAdapter.mItemsCount = titles.size();
-
-
+                            }
+                        });
+                    }
+                }
+            });
         }
 
         @Override
@@ -106,27 +95,17 @@ public class EditSlidesActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
-            holder.title.setText(titles.get(position));
-            holder.desc.setText(descriptions.get(position));
-//            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//                @Override
-//                public void onScrolled(RecyclerView recView, int x, int y) {
-//                    Toast.makeText(recyclerView.getContext(), this.toString(), Toast.LENGTH_SHORT).show();
-//                    Log.d("POSITION", "" + holder.getAdapterPosition());
-//                    currentHolderPos = holder.getAdapterPosition();
-//                }
-//            });
-
+            holder.title.setText(saleItems.get(position).name);
+            holder.desc.setText(saleItems.get(position).getDescription());
         }
 
         @Override
         public int getItemCount() {
-            return mItemsCount;
+            return saleItems.size();
         }
     }
 
     private static class TestViewHolder extends RecyclerView.ViewHolder {
-
         public CardView mCardView;
         public TextView title;
         public TextView desc;
@@ -158,9 +137,8 @@ public class EditSlidesActivity extends AppCompatActivity {
 
             case R.id.action_edit:
                 FragmentManager fm = (FragmentManager)getFragmentManager();
-
-                AddFragment addFragment = AddFragment.newInstance("","","Change Image", null);
-
+                Sale currentItem = saleItems.get(currentHolderPos);
+                AddFragment addFragment = AddFragment.newInstance(currentItem.name, currentItem.getDescription(),"Change Image", currentItem.getId());
                 addFragment.show(fm, "new edit game");
 
                 return true;

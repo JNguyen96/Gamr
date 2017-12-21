@@ -30,82 +30,82 @@ public class MainActivity extends AppCompatActivity {
         cardStack = (SwipeDeck) findViewById(R.id.swipe_deck);
 
         boolean notLoggedIn = (AccessToken.getCurrentAccessToken() == null);
-        if(notLoggedIn) {
+        if (notLoggedIn) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        }
+        } else {
             DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
                 @Override
                 public void onComplete(User user) {
                     currUser = user;
                 }
             });
+            final SwipeDeckAdapter adapter = new SwipeDeckAdapter(this);
 
-        final SwipeDeckAdapter adapter = new SwipeDeckAdapter(this);
+            DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
+                @Override
+                public void onComplete(User user) {
+                    DBWrapper.getInstance().getNewSales(user, new DBWrapper.SaleListListener() {
+                        @Override
+                        public void onComplete(List<Sale> sales) {
+                            adapter.updateItems(sales);
+                        }
+                    });
+                }
+            });
 
-        DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
-            @Override
-            public void onComplete(User user) {
-                DBWrapper.getInstance().getNewSales(user, new DBWrapper.SaleListListener() {
-                    @Override
-                    public void onComplete(List<Sale> sales) {
-                        adapter.updateItems(sales);
-                    }
-                });
-            }
-        });
+            cardStack.setAdapter(adapter);
+            cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
+                @Override
+                public void cardSwipedLeft(final int position) {
+                    Log.i("MainActivity", "card was swiped left, position in adapter: " + position);
+                    DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
+                        @Override
+                        public void onComplete(User user) {
+                            DBWrapper.getInstance().swipeSaleItem(currUser, (Sale) adapter.getItem(position), false, new DBWrapper.SwipeListener() {
+                                @Override
+                                public void onMatch(User other) {
 
-        cardStack.setAdapter(adapter);
-        cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
-            @Override
-            public void cardSwipedLeft(final int position) {
-                Log.i("MainActivity", "card was swiped left, position in adapter: " + position);
-                DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
-                    @Override
-                    public void onComplete(User user) {
-                        DBWrapper.getInstance().swipeSaleItem(currUser, (Sale) adapter.getItem(position), false, new DBWrapper.SwipeListener() {
-                            @Override
-                            public void onMatch(User other) {
+                                }
+                            });
 
-                            }
-                        });
+                        }
+                    });
+                }
 
-                    }
-                });
-            }
+                @Override
+                public void cardSwipedRight(final int position) {
+                    Log.i("MainActivity", "card was swiped right, position in adapter: " + position);
+                    DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
+                        @Override
+                        public void onComplete(User user) {
+                            DBWrapper.getInstance().swipeSaleItem(currUser, (Sale) adapter.getItem(position), true, new DBWrapper.SwipeListener() {
+                                @Override
+                                public void onMatch(User other) {
 
-            @Override
-            public void cardSwipedRight(final int position) {
-                Log.i("MainActivity", "card was swiped right, position in adapter: " + position);
-                DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
-                    @Override
-                    public void onComplete(User user) {
-                        DBWrapper.getInstance().swipeSaleItem(currUser, (Sale) adapter.getItem(position), true, new DBWrapper.SwipeListener() {
-                            @Override
-                            public void onMatch(User other) {
+                                }
+                            });
+                        }
+                    });
+                }
 
-                            }
-                        });
-                    }
-                });
-            }
+                @Override
+                public void cardActionUp() {
+                    Log.i("MainActivity", "card up");
+                }
 
-            @Override
-            public void cardActionUp(){
-                Log.i("MainActivity", "card up");
-            }
+                @Override
+                public void cardActionDown() {
+                    Log.i("MainActivity", "card down");
+                }
 
-            @Override
-            public void cardActionDown(){
-                Log.i("MainActivity", "card down");
-            }
+                @Override
+                public void cardsDepleted() {
+                    Log.i("MainActivity", "no more cards");
+                }
+            });
 
-            @Override
-            public void cardsDepleted() {
-                Log.i("MainActivity", "no more cards");
-            }
-        });
-
-      //  DBWrapper.getInstance().updateSale(new Sale());
+            //  DBWrapper.getInstance().updateSale(new Sale());
+        }
     }
 
     @Override

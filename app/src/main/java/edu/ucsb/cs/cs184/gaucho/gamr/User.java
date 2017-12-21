@@ -16,11 +16,12 @@ public class User {
     List<String> saleIds;
     List<String> seenSaleIds;
     List<String> swipedUserIds;
-
+    List<String> matchIds;
     public User() {
         saleIds = new ArrayList<>();
         seenSaleIds = new ArrayList<>();
         swipedUserIds = new ArrayList<>();
+        matchIds = new ArrayList<>();
     }
 
     public String getId() {
@@ -38,6 +39,11 @@ public class User {
     public List<String> getSwipedUserIds() {
         return swipedUserIds;
     }
+
+    public List<String> getMatchIds() {
+        return matchIds;
+    }
+
     public String getfName() {
         return fName;
     }
