@@ -1,6 +1,7 @@
 package edu.ucsb.cs.cs184.gaucho.gamr;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -64,7 +65,8 @@ public class SwipeDeckAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 String item = (String)getItem(pos);
-                Log.i("MainActivity", item);
+//                v.getContext().startActivity(new Intent(v.getContext(), UserSlidesActivity.class));
+//                Log.i("MainActivity", item);
             }
         });
 

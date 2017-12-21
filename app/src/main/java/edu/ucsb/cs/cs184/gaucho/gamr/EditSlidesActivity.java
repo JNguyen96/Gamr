@@ -6,7 +6,6 @@ package edu.ucsb.cs.cs184.gaucho.gamr;
 
 import android.app.FragmentManager;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -15,32 +14,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import android.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
-import com.ramotion.cardslider.CardSliderLayoutManager;
-import com.ramotion.cardslider.CardSnapHelper;
-
-import java.util.Random;
 
 /**
  * Created by Justin on 12/9/17.
  */
 
-public class Slides extends AppCompatActivity {
+public class EditSlidesActivity extends AppCompatActivity {
 
     public static int currentHolderPos = 0;
     private final String[] titles = {"Halo", "COD: WWII", "Assassins Creed", "Battlefront"};
@@ -63,7 +50,7 @@ public class Slides extends AppCompatActivity {
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
     }
 
-    private static final class TestAdapter extends RecyclerView.Adapter<Slides.TestViewHolder> {
+    private static final class TestAdapter extends RecyclerView.Adapter<EditSlidesActivity.TestViewHolder> {
 
         @SuppressWarnings("UnsecureRandomNumberGeneration")
 //        private final Random mRandom = new Random();
@@ -145,7 +132,7 @@ public class Slides extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case  R.id.action_done:
-                startActivity(new Intent(Slides.this, ProfileActivity.class));
+                startActivity(new Intent(EditSlidesActivity.this, ProfileActivity.class));
                 return true;
 
             case R.id.action_edit:

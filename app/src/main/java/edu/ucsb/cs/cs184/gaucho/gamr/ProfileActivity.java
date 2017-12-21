@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity{
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, Slides.class));
+                startActivity(new Intent(ProfileActivity.this, EditSlidesActivity.class));
             }
         });
 
@@ -66,8 +66,8 @@ public class ProfileActivity extends AppCompatActivity{
                 startActivity(new Intent(ProfileActivity.this, MainActivity.class));
                 return true;
 
-            case R.id.action_messages:
-                startActivity(new Intent(ProfileActivity.this, MessagesActivity.class));
+            case R.id.action_matches:
+                startActivity(new Intent(ProfileActivity.this, MatchesActivity.class));
                 return true;
 
             default:
@@ -83,7 +83,7 @@ public class ProfileActivity extends AppCompatActivity{
     }
 
     public static void showContactFragment(){
-        ContactFragment cf = new ContactFragment();
+        ContactFragment cf = ContactFragment.newInstance("","",null);
         cf.show(fm, "edit contact info");
     }
 }

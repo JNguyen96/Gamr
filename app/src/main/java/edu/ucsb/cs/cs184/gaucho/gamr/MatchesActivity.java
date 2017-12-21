@@ -10,12 +10,12 @@ import android.view.MenuItem;
  * Created by Justin on 12/15/17.
  */
 
-public class MessagesActivity extends AppCompatActivity{
+public class MatchesActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messages);
+        setContentView(R.layout.activity_matches);
     }
 
     @Override
@@ -30,11 +30,11 @@ public class MessagesActivity extends AppCompatActivity{
         switch (item.getItemId()) {
 
             case  R.id.action_profile:
-                startActivity(new Intent(MessagesActivity.this, ProfileActivity.class));
+                startActivity(new Intent(MatchesActivity.this, ProfileActivity.class));
                 return true;
 
             case R.id.action_discover:
-                startActivity(new Intent(MessagesActivity.this, MainActivity.class));
+                startActivity(new Intent(MatchesActivity.this, MainActivity.class));
                 return true;
 
             default:
