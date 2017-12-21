@@ -158,14 +158,15 @@ public class ContactFragment extends android.app.DialogFragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public static ContactFragment newInstance(String title, String description, String buttonTxt, String userId){
-        ContactFragment af = new ContactFragment();
+
+    public static ContactFragment newInstance(String phone, String email, String userId){
+        ContactFragment cf = new ContactFragment();
         Bundle args = new Bundle();
-        args.putString("title",title);
-        args.putString("desc",description);
-        args.putString("buttonTxt", buttonTxt);
+        args.putString("phone",phone);
+        args.putString("email",email);
         args.putString("userId", userId);
-        af.setArguments(args);
-        return af;
+        cf.setArguments(args);
+        return cf;
+
     }
 }

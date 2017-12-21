@@ -169,9 +169,17 @@ public class Slides extends AppCompatActivity {
             case R.id.action_edit:
                 FragmentManager fm = (FragmentManager)getFragmentManager();
                 Log.d("ARRAY POS", currentHolderPos + "");
+<<<<<<< HEAD:app/src/main/java/edu/ucsb/cs/cs184/gaucho/gamr/Slides.java~
+<<<<<<< HEAD
+                AddFragment addFragment = AddFragment.newInstance("","","Change Image");//titles[currentHolderPos], desciptions[currentHolderPos], "Change Image");
+=======
+                AddFragment addFragment = AddFragment.newInstance(titles[currentHolderPos], desciptions[currentHolderPos], "Change Image", null);
+>>>>>>> b21675c6fe194bdcc03c67c3b9ad8f91bf51dfc2
+=======
                 arrayLock.lock();
                 AddFragment addFragment = AddFragment.newInstance(titles.get(currentHolderPos), descriptions.get(currentHolderPos) ,"Change Image", ids.get(currentHolderPos));
                 arrayLock.unlock();
+>>>>>>> 3319b8bef74a75b30f137659e9ae94ab3e2901cd:app/src/main/java/edu/ucsb/cs/cs184/gaucho/gamr/Slides.java
                 addFragment.show(fm, "new edit game");
 
                 return true;

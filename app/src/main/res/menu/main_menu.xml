@@ -19,8 +19,8 @@
     </item>
 
 
-    <item android:id="@+id/action_messages"
-        android:title="Messages"
+    <item android:id="@+id/action_matches"
+        android:title="Matches"
         app:showAsAction="always">
 
     </item>

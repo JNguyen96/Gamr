@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MessagesActivity">
+        <activity android:name=".MatchesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,13 +42,23 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Slides">
+        <activity android:name=".EditSlidesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".UserSlidesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>

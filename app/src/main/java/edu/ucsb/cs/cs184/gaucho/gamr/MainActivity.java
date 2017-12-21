@@ -13,6 +13,7 @@ import com.facebook.AccessToken;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,9 +30,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cardStack = (SwipeDeck) findViewById(R.id.swipe_deck);
-
         testData = new HashMap<>();
         titles = new ArrayList<>();
+        final User currUser = new User();
+
+        DBWrapper.UserTransactionListener utl = new DBWrapper.UserTransactionListener() {
+            @Override
+            public void onComplete(User user) {
+                currUser.id = user.getId();
+                currUser.saleIds = user.getSaleIds();
+                currUser.swipeIds = user.getSwipeIds();
+            }
+        };
+        DBWrapper.SaleListListener sll = new DBWrapper.SaleListListener() {
+            @Override
+            public void onComplete(List<Sale> sales) {
+                for(Sale sale:sales){
+                    for(String id:currUser.getSwipeIds())
+                        if((id == sale.getId())){
+                            testData.put(sale.getName(), sale.getDescription());
+                            titles.add(sale.getName());
+                        }
+                }
+            }
+        };
+
+        DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(),utl);
+
+        DBWrapper.getInstance().getNewSales(currUser,sll);
+
+
         testData.put("jenga", "stack it");
         titles.add("jenga");
         testData.put("monopoly", "hours of fun");
@@ -100,8 +128,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                 return true;
 
-            case R.id.action_messages:
-                startActivity(new Intent(MainActivity.this, MessagesActivity.class));
+            case R.id.action_matches:
+                startActivity(new Intent(MainActivity.this, MatchesActivity.class));
                 return true;
 
             default:
