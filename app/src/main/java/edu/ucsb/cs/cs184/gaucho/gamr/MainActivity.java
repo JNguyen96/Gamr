@@ -40,17 +40,20 @@ public class MainActivity extends AppCompatActivity {
                 currUser.id = user.getId();
                 currUser.saleIds = user.getSaleIds();
                 currUser.swipeIds = user.getSwipeIds();
+
             }
         };
         DBWrapper.SaleListListener sll = new DBWrapper.SaleListListener() {
             @Override
             public void onComplete(List<Sale> sales) {
+                Log.d("SWIPE IDS", currUser.getSwipeIds().toString());
                 for(Sale sale:sales){
-                    for(String id:currUser.getSwipeIds())
-                        if((id == sale.getId())){
+//                    for(String id:currUser.getSwipeIds()) {
+//                        if (!(id == sale.getId())) {
                             testData.put(sale.getName(), sale.getDescription());
                             titles.add(sale.getName());
-                        }
+//                        }
+//                    }
                 }
             }
         };
@@ -60,16 +63,16 @@ public class MainActivity extends AppCompatActivity {
         DBWrapper.getInstance().getNewSales(currUser,sll);
 
 
-        testData.put("jenga", "stack it");
-        titles.add("jenga");
-        testData.put("monopoly", "hours of fun");
-        titles.add("monopoly");
-        testData.put("life", "is hard");
-        titles.add("life");
-        testData.put("stratego", "bombs");
-        titles.add("stratego");
-        testData.put("incan", "always in");
-        titles.add("incan");
+//        testData.put("jenga", "stack it");
+//        titles.add("jenga");
+//        testData.put("monopoly", "hours of fun");
+//        titles.add("monopoly");
+//        testData.put("life", "is hard");
+//        titles.add("life");
+//        testData.put("stratego", "bombs");
+//        titles.add("stratego");
+//        testData.put("incan", "always in");
+//        titles.add("incan");
         adapter = new SwipeDeckAdapter(titles, testData, this);
         cardStack.setAdapter(adapter);
         cardStack.setEventCallback(new SwipeDeck.SwipeEventCallback() {
