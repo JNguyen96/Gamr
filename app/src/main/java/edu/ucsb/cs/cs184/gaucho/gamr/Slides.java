@@ -152,7 +152,7 @@ public class Slides extends AppCompatActivity {
                 FragmentManager fm = (FragmentManager)getFragmentManager();
                 Log.d("ARRAY POS", currentHolderPos + "");
 
-                AddFragment addFragment = AddFragment.newInstance("","","Change Image");//titles[currentHolderPos], desciptions[currentHolderPos], "Change Image");
+                AddFragment addFragment = AddFragment.newInstance("","","Change Image", null);//titles[currentHolderPos], desciptions[currentHolderPos], "Change Image");
 
                 addFragment.show(fm, "new edit game");
 
