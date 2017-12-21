@@ -26,6 +26,8 @@ import android.widget.TextView;
 public class ContactFragment extends android.app.DialogFragment {
 
     final int ACTIVITY_SELECT_IMAGE = 4;
+    String firstName = "";
+    String lastName = "";
     String phoneText = "";
     String emailText = "";
 
@@ -44,6 +46,8 @@ public class ContactFragment extends android.app.DialogFragment {
         TextView email = (TextView)view.findViewById(R.id.email_prompt);
         final EditText emailRes = (EditText)view.findViewById(R.id.emailRes);
 //        email.setText("Email Address");
+        final EditText fNameRes = (EditText)view.findViewById(R.id.fNameRes);
+        final EditText lNameRes = (EditText)view.findViewById(R.id.lNameRes);
         Button save = (Button)view.findViewById(R.id.saveCButton);
         Button cancel = (Button)view.findViewById(R.id.cancelCButton);
         DBWrapper.getInstance().getUser(getArguments().getString("userId"), new DBWrapper.UserTransactionListener() {
@@ -53,6 +57,40 @@ public class ContactFragment extends android.app.DialogFragment {
                     phoneRes.setText(user.phone);
                 if (emailRes.getText().length() == 0)
                     emailRes.setText(user.email);
+            }
+        });
+
+        fNameRes.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                firstName = editable.toString();
+            }
+        });
+
+        lNameRes.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                lastName = editable.toString();
             }
         });
 
@@ -99,6 +137,8 @@ public class ContactFragment extends android.app.DialogFragment {
                 DBWrapper.getInstance().getUser(getArguments().getString("userId"), new DBWrapper.UserTransactionListener() {
                     @Override
                     public void onComplete(User user) {
+                        user.fName = firstName;
+                        user.lName = lastName;
                         user.email = emailText;
                         user.phone = phoneText;
                         DBWrapper.getInstance().updateUser(user);
@@ -159,9 +199,11 @@ public class ContactFragment extends android.app.DialogFragment {
     }
 
 
-    public static ContactFragment newInstance(String phone, String email, String userId){
+    public static ContactFragment newInstance(String fName, String lName, String phone, String email, String userId){
         ContactFragment cf = new ContactFragment();
         Bundle args = new Bundle();
+        args.putString("fName",fName);
+        args.putString("lName",lName);
         args.putString("phone",phone);
         args.putString("email",email);
         args.putString("userId", userId);

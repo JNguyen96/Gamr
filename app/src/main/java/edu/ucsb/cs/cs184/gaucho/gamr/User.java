@@ -9,6 +9,8 @@ import java.util.List;
 
 public class User {
     String id;
+    String fName;
+    String lName;
     String phone;
     String email;
     List<String> saleIds;
@@ -30,6 +32,13 @@ public class User {
         return seenSaleIds;
     }
 
+    public String getfName() {
+        return fName;
+    }
+
+    public String getlName(){
+        return lName;
+    }
     public String getPhone() {
         return phone;
     }
