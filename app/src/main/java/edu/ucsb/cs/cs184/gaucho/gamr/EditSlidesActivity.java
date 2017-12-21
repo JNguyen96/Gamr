@@ -23,6 +23,8 @@ import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
 
+import java.util.ArrayList;
+
 /**
  * Created by Justin on 12/9/17.
  */
@@ -30,8 +32,8 @@ import com.azoft.carousellayoutmanager.CenterScrollListener;
 public class EditSlidesActivity extends AppCompatActivity {
 
     public static int currentHolderPos = 0;
-    private final String[] titles = {"Halo", "COD: WWII", "Assassins Creed", "Battlefront"};
-    private final String[] desciptions = {"Master Chef", "1v1 QuickScopes", "Fall Damage", "Loot Boxes"};
+    private ArrayList<String> titles = new ArrayList<>();
+    private ArrayList<String> desciptions = new ArrayList<>();
     public static RecyclerView recyclerView;
 
     @Override
@@ -48,30 +50,27 @@ public class EditSlidesActivity extends AppCompatActivity {
         recyclerView.addOnScrollListener(new CenterScrollListener());
         recyclerView.setAdapter(new TestAdapter(titles,desciptions));
         layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+
+        DBWrapper.UserTransactionListener userTransactionListener = new DBWrapper.UserTransactionListener(){
+            @Override
+            public void onComplete(User user){
+
+            }
+        };
     }
 
     private static final class TestAdapter extends RecyclerView.Adapter<EditSlidesActivity.TestViewHolder> {
 
-        @SuppressWarnings("UnsecureRandomNumberGeneration")
-//        private final Random mRandom = new Random();
-//        private final int[] mColors;
-//        private final int[] mPosition;
         private static int mItemsCount;
-        private static String[] titles;
-        private static String[] descriptions;
+        private static ArrayList<String> titles;
+        private static ArrayList<String> descriptions;
 
 
-        TestAdapter(String[] titles, String[] descriptions) {
-//            mColors = new int[mItemsCount];
-//            mPosition = new int[mItemsCount];
-//            for (int i = 0; mItemsCount > i; ++i) {
-//                //noinspection MagicNumber
-//                mColors[i] = Color.argb(255, mRandom.nextInt(256), mRandom.nextInt(256), mRandom.nextInt(256));
-//                mPosition[i] = i;
-//            }
+        TestAdapter(ArrayList<String> titles, ArrayList<String> descriptions) {
+
             TestAdapter.titles = titles;
             TestAdapter.descriptions = descriptions;
-            TestAdapter.mItemsCount = titles.length;
+            TestAdapter.mItemsCount = titles.size();
 
 
         }
@@ -85,8 +84,8 @@ public class EditSlidesActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
-            holder.title.setText(titles[position]);
-            holder.desc.setText(descriptions[position]);
+            holder.title.setText(titles.get(position));
+            holder.desc.setText(descriptions.get(position));
 //            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //                @Override
 //                public void onScrolled(RecyclerView recView, int x, int y) {

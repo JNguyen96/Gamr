@@ -45,14 +45,13 @@ public class MainActivity extends AppCompatActivity {
         DBWrapper.SaleListListener sll = new DBWrapper.SaleListListener() {
             @Override
             public void onComplete(List<Sale> sales) {
-                Log.d("SWIPE IDS", currUser.getSeenSaleIds().toString());
                 for(Sale sale:sales){
-                    for(String id:currUser.getSeenSaleIds()) {
-                        if (!(id.equals(sale.getId()))) {
+//                    for(String id:currUser.getSeenSaleIds()) {
+//                        if (!(id.equals(sale.getId()))) {
                             testData.put(sale.getName(), sale.getDescription());
                             titles.add(sale.getName());
-                        }
-                    }
+//                        }
+//                    }
                 }
             }
         };
