@@ -15,9 +15,12 @@ public class User {
     String email;
     List<String> saleIds;
     List<String> seenSaleIds;
+    List<String> swipedUserIds;
+
     public User() {
         saleIds = new ArrayList<>();
         seenSaleIds = new ArrayList<>();
+        swipedUserIds = new ArrayList<>();
     }
 
     public String getId() {
@@ -32,6 +35,9 @@ public class User {
         return seenSaleIds;
     }
 
+    public List<String> getSwipedUserIds() {
+        return swipedUserIds;
+    }
     public String getfName() {
         return fName;
     }

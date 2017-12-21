@@ -19,14 +19,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 
 public class SwipeDeckAdapter extends BaseAdapter {
-
-    private List<String> titles;
-    private List<String> descriptions;
+    private List<Sale> saleItems;
     private Context context;
     private ReadWriteLock lock;
     public SwipeDeckAdapter(Context context) {
-        this.titles = new ArrayList<>();
-        this.descriptions = new ArrayList<>();
+        saleItems = new ArrayList<>();
         this.context = context;
         lock = new ReentrantReadWriteLock();
     }
@@ -35,7 +32,7 @@ public class SwipeDeckAdapter extends BaseAdapter {
     public int getCount() {
         try {
             lock.readLock().lock();
-            return descriptions.size();
+            return saleItems.size();
         }
         finally {
             lock.readLock().unlock();
@@ -46,7 +43,7 @@ public class SwipeDeckAdapter extends BaseAdapter {
     public Object getItem(int position) {
         try {
             lock.readLock().lock();
-            return descriptions.get(position);
+            return saleItems.get(position);
         }
         finally {
             lock.readLock().unlock();
@@ -58,12 +55,11 @@ public class SwipeDeckAdapter extends BaseAdapter {
         return position;
     }
 
-    public void updateItems(List<String> titles, List<String> descriptions) {
+    public void updateItems(List<Sale> saleItems) {
         lock.writeLock().lock();
-        this.titles.clear();
-        for (int i = 0; i < titles.size(); i++) {
-            this.titles.add(titles.get(i));
-            this.descriptions.add(descriptions.get(i));
+        this.saleItems.clear();
+        for (int i = 0; i < saleItems.size(); i++) {
+            this.saleItems.add(saleItems.get(i));
         }
         lock.writeLock().unlock();
         this.notifyDataSetChanged();
@@ -82,10 +78,10 @@ public class SwipeDeckAdapter extends BaseAdapter {
 
         lock.readLock().lock();
 
-        int id = context.getResources().getIdentifier("edu.ucsb.cs.cs184.gaucho.gamr:drawable/" + titles.get(position), null, null);
+        int id = context.getResources().getIdentifier("edu.ucsb.cs.cs184.gaucho.gamr:drawable/" + saleItems.get(position).name, null, null);
         ((ImageView) v.findViewById(R.id.imageView)).setImageResource(id);
-        ((TextView) v.findViewById(R.id.textView2)).setText(descriptions.get(position));
-        ((TextView) v.findViewById(R.id.textView)).setText(titles.get(position));
+        ((TextView) v.findViewById(R.id.textView2)).setText(saleItems.get(position).getDescription());
+        ((TextView) v.findViewById(R.id.textView)).setText(saleItems.get(position).getDescription());
 
         lock.readLock().unlock();
 

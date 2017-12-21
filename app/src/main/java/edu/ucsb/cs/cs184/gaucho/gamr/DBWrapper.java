@@ -108,14 +108,15 @@ public class DBWrapper {
             }
         });
     }
-    public void swipeYesSale(final User swiper, Sale sale, final SwipeListener listener) {
-        String ownerid = sale.ownerId;
-        swiper.seenSaleIds.add(ownerid);
+    public void swipeSaleItem(final User swiper, Sale sale, boolean positive, final SwipeListener listener) {
+        swiper.seenSaleIds.add(sale.id);
+        if (positive && !swiper.swipedUserIds.contains(sale.ownerId))
+            swiper.getSwipedUserIds().add(sale.ownerId);
         updateUser(swiper);
-        getUser(ownerid, new UserTransactionListener() {
+        getUser(sale.ownerId, new UserTransactionListener() {
             @Override
             public void onComplete(User user) {
-                if (user.seenSaleIds.contains(swiper.id)) {
+                if (user.getSwipedUserIds().contains(swiper.id)) {
                     // It's a match!
                     listener.onMatch(user);
                 }
