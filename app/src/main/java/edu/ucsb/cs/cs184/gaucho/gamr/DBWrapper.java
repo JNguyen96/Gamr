@@ -124,7 +124,7 @@ public class DBWrapper {
     }
 
     public void getNewSales(User swiper, SaleListListener listener) {
-        db.child("sales").addListenerForSingleValueEvent(new GetNewSalesDatabaseListener(swiper.id, listener));
+        db.child("sales").addListenerForSingleValueEvent(new GetNewSalesDatabaseListener(swiper, listener));
     }
 
     class GetSaleDatabaseListener implements ValueEventListener {
@@ -154,10 +154,10 @@ public class DBWrapper {
     }
     class GetNewSalesDatabaseListener implements ValueEventListener {
         SaleListListener listener;
-        String ownerId;
-        public GetNewSalesDatabaseListener(String ownerId, SaleListListener listener) {
+        User owner;
+        public GetNewSalesDatabaseListener(User owner, SaleListListener listener) {
             this.listener = listener;
-            this.ownerId = ownerId;
+            this.owner = owner;
         }
 
         @Override
@@ -165,8 +165,8 @@ public class DBWrapper {
             ArrayList<Sale> sales = new ArrayList<>();
             for (DataSnapshot ds : dataSnapshot.getChildren()) {
                 Sale s = ds.getValue(Sale.class);
-                if (s.ownerId != ownerId)
-                    sales.add(s);
+                if (s.ownerId != owner.id && !owner.getSwipeIds().contains(s.id))
+                    sales.add(s);                 
             }
             listener.onComplete(sales);
         }
