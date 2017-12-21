@@ -31,10 +31,15 @@ import android.widget.Toast;
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
+import com.facebook.AccessToken;
 import com.ramotion.cardslider.CardSliderLayoutManager;
 import com.ramotion.cardslider.CardSnapHelper;
 
+import java.util.List;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by Justin on 12/9/17.
@@ -42,51 +47,73 @@ import java.util.Random;
 
 public class Slides extends AppCompatActivity {
 
-    public static int currentHolderPos = 0;
-    private final String[] titles = {"Halo", "COD: WWII", "Assassins Creed", "Battlefront"};
-    private final String[] desciptions = {"Master Chef", "1v1 QuickScopes", "Fall Damage", "Loot Boxes"};
+    public int currentHolderPos = 0;
+    Lock arrayLock;
+    private CopyOnWriteArrayList<String> titles;
+    private CopyOnWriteArrayList<String> descriptions;
+    private CopyOnWriteArrayList<String> ids;
     public static RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slides);
-
+        titles = new CopyOnWriteArrayList<>();
+        descriptions = new CopyOnWriteArrayList<>();
+        ids = new CopyOnWriteArrayList<>();
+        arrayLock = new ReentrantLock();
         final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, false);
-
+        layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+        refreshItems();
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-
+        layoutManager.addOnItemSelectionListener(new CarouselLayoutManager.OnCenterItemSelectionListener() {
+            @Override
+            public void onCenterItemChanged(int adapterPosition) {
+                currentHolderPos = adapterPosition;
+            }
+        });
         recyclerView.addOnScrollListener(new CenterScrollListener());
-        recyclerView.setAdapter(new TestAdapter(titles,desciptions));
-        layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+        recyclerView.setAdapter(new TestAdapter(titles, descriptions));
     }
 
-    private static final class TestAdapter extends RecyclerView.Adapter<Slides.TestViewHolder> {
+    private void refreshItems() {
+        arrayLock.lock();
+        titles.clear();
+        descriptions.clear();
+        ids.clear();
+        arrayLock.unlock();
+        DBWrapper.getInstance().getUser(AccessToken.getCurrentAccessToken().getUserId(), new DBWrapper.UserTransactionListener() {
+            @Override
+            public void onComplete(User user) {
+                for (String sale : user.getSaleIds()) {
+                    DBWrapper.getInstance().getSale(sale, new DBWrapper.SaleTransactionListener() {
+                        @Override
+                        public void onComplete(Sale sale) {
+                            arrayLock.lock();
+                            titles.add(sale.name);
+                            descriptions.add(sale.description);
+                            ids.add(sale.id);
+                            arrayLock.unlock();
+                            recyclerView.getAdapter().notifyDataSetChanged();
+                        }
 
-        @SuppressWarnings("UnsecureRandomNumberGeneration")
-//        private final Random mRandom = new Random();
-//        private final int[] mColors;
-//        private final int[] mPosition;
-        private static int mItemsCount;
-        private static String[] titles;
-        private static String[] descriptions;
+                        @Override
+                        public void onFailure(FailureReason reason) {
 
-
-        TestAdapter(String[] titles, String[] descriptions) {
-//            mColors = new int[mItemsCount];
-//            mPosition = new int[mItemsCount];
-//            for (int i = 0; mItemsCount > i; ++i) {
-//                //noinspection MagicNumber
-//                mColors[i] = Color.argb(255, mRandom.nextInt(256), mRandom.nextInt(256), mRandom.nextInt(256));
-//                mPosition[i] = i;
-//            }
-            TestAdapter.titles = titles;
-            TestAdapter.descriptions = descriptions;
-            TestAdapter.mItemsCount = titles.length;
-
-
+                        }
+                    });
+                }
+            }
+        });
+    }
+    private final class TestAdapter extends RecyclerView.Adapter<Slides.TestViewHolder> {
+        private List<String> titles;
+        private List<String> descriptions;
+        TestAdapter(List<String> titles, List<String> descriptions) {
+            this.titles = titles;
+            this.descriptions = descriptions;
         }
 
         @Override
@@ -98,27 +125,18 @@ public class Slides extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
-            holder.title.setText(titles[position]);
-            holder.desc.setText(descriptions[position]);
-//            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//                @Override
-//                public void onScrolled(RecyclerView recView, int x, int y) {
-//                    Toast.makeText(recyclerView.getContext(), this.toString(), Toast.LENGTH_SHORT).show();
-//                    Log.d("POSITION", "" + holder.getAdapterPosition());
-//                    currentHolderPos = holder.getAdapterPosition();
-//                }
-//            });
-
+            holder.title.setText(titles.get(position));
+            holder.desc.setText(descriptions.get(position));
+            currentHolderPos = holder.getAdapterPosition();
         }
 
         @Override
         public int getItemCount() {
-            return mItemsCount;
+            return titles.size();
         }
     }
 
     private static class TestViewHolder extends RecyclerView.ViewHolder {
-
         public CardView mCardView;
         public TextView title;
         public TextView desc;
@@ -151,11 +169,17 @@ public class Slides extends AppCompatActivity {
             case R.id.action_edit:
                 FragmentManager fm = (FragmentManager)getFragmentManager();
                 Log.d("ARRAY POS", currentHolderPos + "");
+<<<<<<< HEAD:app/src/main/java/edu/ucsb/cs/cs184/gaucho/gamr/Slides.java~
 <<<<<<< HEAD
                 AddFragment addFragment = AddFragment.newInstance("","","Change Image");//titles[currentHolderPos], desciptions[currentHolderPos], "Change Image");
 =======
                 AddFragment addFragment = AddFragment.newInstance(titles[currentHolderPos], desciptions[currentHolderPos], "Change Image", null);
 >>>>>>> b21675c6fe194bdcc03c67c3b9ad8f91bf51dfc2
+=======
+                arrayLock.lock();
+                AddFragment addFragment = AddFragment.newInstance(titles.get(currentHolderPos), descriptions.get(currentHolderPos) ,"Change Image", ids.get(currentHolderPos));
+                arrayLock.unlock();
+>>>>>>> 3319b8bef74a75b30f137659e9ae94ab3e2901cd:app/src/main/java/edu/ucsb/cs/cs184/gaucho/gamr/Slides.java
                 addFragment.show(fm, "new edit game");
 
                 return true;

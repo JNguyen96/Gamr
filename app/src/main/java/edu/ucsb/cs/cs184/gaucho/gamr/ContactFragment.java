@@ -37,15 +37,24 @@ public class ContactFragment extends android.app.DialogFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable final Bundle savedInstanceState) {
-        TextView phoneNum = (TextView)view.findViewById(R.id.phone_num);
-        EditText phoneRes = (EditText)view.findViewById(R.id.phoneRes);
+        final User user;
+        final TextView phoneNum = (TextView)view.findViewById(R.id.phone_num);
+        final EditText phoneRes = (EditText)view.findViewById(R.id.phoneRes);
 //        phoneNum.setText("Phone Number");
         TextView email = (TextView)view.findViewById(R.id.email_prompt);
-        EditText emailRes = (EditText)view.findViewById(R.id.emailRes);
+        final EditText emailRes = (EditText)view.findViewById(R.id.emailRes);
 //        email.setText("Email Address");
         Button save = (Button)view.findViewById(R.id.saveCButton);
         Button cancel = (Button)view.findViewById(R.id.cancelCButton);
-
+        DBWrapper.getInstance().getUser(getArguments().getString("userId"), new DBWrapper.UserTransactionListener() {
+            @Override
+            public void onComplete(User user) {
+                if (phoneRes.getText().length() == 0)
+                    phoneRes.setText(user.phone);
+                if (emailRes.getText().length() == 0)
+                    emailRes.setText(user.email);
+            }
+        });
 
         phoneRes.addTextChangedListener(new TextWatcher() {
             @Override
@@ -87,6 +96,14 @@ public class ContactFragment extends android.app.DialogFragment {
                 Log.d("PHONE NUMBER", phoneText);
                 Log.d("EMAIL ADDRESS", emailText);
                 //TODO: Save title, description, and image to DB
+                DBWrapper.getInstance().getUser(getArguments().getString("userId"), new DBWrapper.UserTransactionListener() {
+                    @Override
+                    public void onComplete(User user) {
+                        user.email = emailText;
+                        user.phone = phoneText;
+                        DBWrapper.getInstance().updateUser(user);
+                    }
+                });
                 dismiss();
             }
         });
@@ -141,13 +158,15 @@ public class ContactFragment extends android.app.DialogFragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public static ContactFragment newInstance(String phone, String email, String serverId){
+
+    public static ContactFragment newInstance(String phone, String email, String userId){
         ContactFragment cf = new ContactFragment();
         Bundle args = new Bundle();
         args.putString("phone",phone);
         args.putString("email",email);
-        args.putString("serverId", serverId);
+        args.putString("userId", userId);
         cf.setArguments(args);
         return cf;
+
     }
 }
