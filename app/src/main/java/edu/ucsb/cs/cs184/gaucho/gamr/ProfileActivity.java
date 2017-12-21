@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.facebook.AccessToken;
+
 /**
  * Created by Justin on 12/9/17.
  */
@@ -83,7 +85,7 @@ public class ProfileActivity extends AppCompatActivity{
     }
 
     public static void showContactFragment(){
-        ContactFragment cf = new ContactFragment();
+        ContactFragment cf = ContactFragment.newInstance("", "", "", AccessToken.getCurrentAccessToken().getUserId());
         cf.show(fm, "edit contact info");
     }
 }
