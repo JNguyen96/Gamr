@@ -1,6 +1,8 @@
 package edu.ucsb.cs.cs184.gaucho.gamr;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -8,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +21,8 @@ import android.widget.TextView;
 
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
+
+import java.io.ByteArrayOutputStream;
 
 
 /**
@@ -31,6 +36,8 @@ public class AddFragment extends android.app.DialogFragment {
     final int ACTIVITY_SELECT_IMAGE = 4;
     String titleText = "";
     String desText = "";
+    Bitmap imageBM;
+    String encodedBM = "";
 
     private OnFragmentInteractionListener mListener;
 
@@ -105,6 +112,8 @@ public class AddFragment extends android.app.DialogFragment {
                 sale.description = desText;
                 sale.ownerId = AccessToken.getCurrentAccessToken().getUserId();
                 sale.name = titleText;
+                sale.encodedBM = encodedBM;
+                sale.image.setBm(imageBM);
                 DBWrapper.getInstance().updateSale(sale);
                 dismiss();
             }
@@ -123,6 +132,32 @@ public class AddFragment extends android.app.DialogFragment {
     public void LaunchGallery() {
         Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == getActivity().RESULT_OK) {
+            try {
+                switch (requestCode) {
+                    case ACTIVITY_SELECT_IMAGE:
+                        Uri uri = data.getData();
+                        Bitmap bitmap = android.provider.MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
+                        imageBM = bitmap;
+                        if(bitmap != null) {
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                            encodedBM = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
+                        }
+                        else{
+                            encodedBM = getArguments().getString("encodedBM");
+                        }
+
+                        break;
+                }
+            } catch (java.io.IOException e) {
+
+            }
+        }
     }
 
 
@@ -162,13 +197,14 @@ public class AddFragment extends android.app.DialogFragment {
     }
 
 
-    public static AddFragment newInstance(String title, String description, String buttonTxt, String serverId){
+    public static AddFragment newInstance(String title, String description, String buttonTxt, String serverId, String encodedBM){
         AddFragment af = new AddFragment();
         Bundle args = new Bundle();
         args.putString("title",title);
         args.putString("desc",description);
         args.putString("buttonTxt", buttonTxt);
         args.putString("serverId", serverId);
+        args.putString("encodedBM", encodedBM);
         af.setArguments(args);
         return af;
     }

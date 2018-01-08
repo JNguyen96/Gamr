@@ -6,10 +6,13 @@ package edu.ucsb.cs.cs184.gaucho.gamr;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import com.facebook.AccessToken;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +99,20 @@ public class EditSlidesActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
-            holder.title.setText(saleItems.get(position).name);
+//            holder.img.setImageBitmap(saleItems.get(position).getImage());
+            int id = getApplicationContext().getResources().getIdentifier("edu.ucsb.cs.cs184.gaucho.gamr:drawable/monopoly", null, null);
+            holder.img.setImageResource(id);
+            if(!(saleItems.get(position).getEncodedBM().equals("POISON"))) {
+//                Picasso.with(getApplicationContext())
+//                        .load(saleItems.get(position).getEncodedBM())
+//                        .resize(500, 500)
+//                        .centerCrop()
+//                        .into(holder.img);
+                byte[] decodedString = Base64.decode(saleItems.get(position).getEncodedBM(), Base64.DEFAULT);
+                Bitmap decodedbyte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                holder.img.setImageBitmap(decodedbyte);
+            }
+            holder.title.setText(saleItems.get(position).getName());
             holder.desc.setText(saleItems.get(position).getDescription());
         }
 
@@ -138,7 +155,7 @@ public class EditSlidesActivity extends AppCompatActivity {
             case R.id.action_edit:
                 FragmentManager fm = (FragmentManager)getFragmentManager();
                 Sale currentItem = saleItems.get(currentHolderPos);
-                AddFragment addFragment = AddFragment.newInstance(currentItem.name, currentItem.getDescription(),"Change Image", currentItem.getId());
+                AddFragment addFragment = AddFragment.newInstance(currentItem.name, currentItem.getDescription(),"Change Image", currentItem.getId(), currentItem.encodedBM);
                 addFragment.show(fm, "new edit game");
 
                 return true;

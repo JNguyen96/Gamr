@@ -79,9 +79,9 @@ public class SwipeDeckAdapter extends BaseAdapter {
         lock.readLock().lock();
 
         int id = context.getResources().getIdentifier("edu.ucsb.cs.cs184.gaucho.gamr:drawable/" + saleItems.get(position).name, null, null);
-        ((ImageView) v.findViewById(R.id.imageView)).setImageResource(id);
+        ((ImageView) v.findViewById(R.id.imageView)).setImageBitmap(saleItems.get(position).getImage());
         ((TextView) v.findViewById(R.id.textView2)).setText(saleItems.get(position).getDescription());
-        ((TextView) v.findViewById(R.id.textView)).setText(saleItems.get(position).getDescription());
+        ((TextView) v.findViewById(R.id.textView)).setText(saleItems.get(position).getName());
 
         lock.readLock().unlock();
 
