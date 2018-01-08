@@ -11,7 +11,6 @@ public class Sale {
     String name;
     String description;
     String encodedBM;
-    BM image;
     String ownerId;
 
     public Sale() {
@@ -20,7 +19,6 @@ public class Sale {
         description = "POISON";
         ownerId = "POISON";
         encodedBM = "POISON";
-        image = new BM();
     }
 
     public String getId() {
@@ -35,10 +33,6 @@ public class Sale {
     }
 
     public String getEncodedBM(){return encodedBM;}
-
-    public Bitmap getImage() {
-        return image.getBm();
-    }
 
     public String getOwnerId() {
         return ownerId;

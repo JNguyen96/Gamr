@@ -36,8 +36,7 @@ public class AddFragment extends android.app.DialogFragment {
     final int ACTIVITY_SELECT_IMAGE = 4;
     String titleText = "";
     String desText = "";
-    Bitmap imageBM;
-    String encodedBM = "";
+    String encodedBM = "POISON";
 
     private OnFragmentInteractionListener mListener;
 
@@ -48,12 +47,12 @@ public class AddFragment extends android.app.DialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable final Bundle savedInstanceState) {
         TextView titlePrompt = (TextView)view.findViewById(R.id.title);
-        EditText titleRes = (EditText)view.findViewById(R.id.titleRes);
+        final EditText titleRes = (EditText)view.findViewById(R.id.titleRes);
         titleRes.setText(getArguments().getString("title"));
         titleText = titleRes.getText().toString();
 
         TextView desPrompt = (TextView)view.findViewById(R.id.description);
-        EditText desRes = (EditText)view.findViewById(R.id.descriptionRes);
+        final EditText desRes = (EditText)view.findViewById(R.id.descriptionRes);
         desRes.setText(getArguments().getString("desc"));
         desText = desRes.getText().toString();
 
@@ -63,6 +62,7 @@ public class AddFragment extends android.app.DialogFragment {
         Button save = (Button)view.findViewById(R.id.saveButton);
         Button cancel = (Button)view.findViewById(R.id.cancelButton);
 
+        encodedBM = getArguments().getString("encodedBM");
 
         titleRes.addTextChangedListener(new TextWatcher() {
             @Override
@@ -113,7 +113,6 @@ public class AddFragment extends android.app.DialogFragment {
                 sale.ownerId = AccessToken.getCurrentAccessToken().getUserId();
                 sale.name = titleText;
                 sale.encodedBM = encodedBM;
-                sale.image.setBm(imageBM);
                 DBWrapper.getInstance().updateSale(sale);
                 dismiss();
             }
@@ -142,7 +141,6 @@ public class AddFragment extends android.app.DialogFragment {
                     case ACTIVITY_SELECT_IMAGE:
                         Uri uri = data.getData();
                         Bitmap bitmap = android.provider.MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
-                        imageBM = bitmap;
                         if(bitmap != null) {
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);

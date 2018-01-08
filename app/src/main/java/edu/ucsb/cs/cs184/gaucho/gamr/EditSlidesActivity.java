@@ -99,15 +99,7 @@ public class EditSlidesActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final TestViewHolder holder, final int position) {
-//            holder.img.setImageBitmap(saleItems.get(position).getImage());
-            int id = getApplicationContext().getResources().getIdentifier("edu.ucsb.cs.cs184.gaucho.gamr:drawable/monopoly", null, null);
-            holder.img.setImageResource(id);
             if(!(saleItems.get(position).getEncodedBM().equals("POISON"))) {
-//                Picasso.with(getApplicationContext())
-//                        .load(saleItems.get(position).getEncodedBM())
-//                        .resize(500, 500)
-//                        .centerCrop()
-//                        .into(holder.img);
                 byte[] decodedString = Base64.decode(saleItems.get(position).getEncodedBM(), Base64.DEFAULT);
                 Bitmap decodedbyte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                 holder.img.setImageBitmap(decodedbyte);

@@ -85,6 +85,7 @@ public class MatchesActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final MatchesActivity.TestViewHolder holder, final int position) {
+            holder.match.setTextSize(30);
             holder.match.setText(matches.get(position).getfName() + " " + matches.get(position).getlName());
             holder.user = matches.get(position);
         }
@@ -108,7 +109,7 @@ public class MatchesActivity extends AppCompatActivity {
             match.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    MatchContactFragment mcf = MatchContactFragment.newInstance(user.getfName(), user.lName, user.getPhone(), user.getEmail(), user.getId());
+                    MatchContactFragment mcf = MatchContactFragment.newInstance(user.getfName(), user.lName, user.getPhone(), user.getEmail(), user.getId(), (ArrayList<String>)user.getSaleIds());
                     mcf.show(fm, "new match contact");
                 }
             });

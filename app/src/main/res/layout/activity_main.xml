@@ -24,4 +24,11 @@
 
     </com.daprlabs.cardstack.SwipeFrameLayout>
 
+    <TextView
+        android:id="@+id/no_cards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="There are currently no more games!"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </android.support.constraint.ConstraintLayout>

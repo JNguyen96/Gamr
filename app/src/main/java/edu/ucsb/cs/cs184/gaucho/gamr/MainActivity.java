@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.daprlabs.cardstack.SwipeDeck;
 import com.facebook.AccessToken;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private SwipeDeck cardStack;
     private Context context = this;
 
+    TextView noCards;
+
     // private SwipeDeckAdapter adapter;
     private User currUser;
     @Override
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cardStack = (SwipeDeck) findViewById(R.id.swipe_deck);
+        noCards = (TextView) findViewById(R.id.no_cards);
 
         boolean notLoggedIn = (AccessToken.getCurrentAccessToken() == null);
         if (notLoggedIn) {
@@ -48,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(List<Sale> sales) {
                             adapter.updateItems(sales);
+                            if(sales.size() != 0) {
+                                noCards.setVisibility(TextView.INVISIBLE);
+                            }
                         }
                     });
                 }
@@ -100,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void cardsDepleted() {
+                    noCards.setVisibility(TextView.VISIBLE);
                     Log.i("MainActivity", "no more cards");
                 }
             });

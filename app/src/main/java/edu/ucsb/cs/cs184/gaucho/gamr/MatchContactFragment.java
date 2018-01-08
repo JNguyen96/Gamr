@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,17 +27,36 @@ public class MatchContactFragment extends DialogFragment {
     public MatchContactFragment() {
         // Required empty public constructor
     }
-
+    String gameList = "";
+    TextView games;
 
     @Override
     public void onViewCreated(View view, @Nullable final Bundle savedInstanceState) {
         TextView name = (TextView)view.findViewById(R.id.name);
         TextView phone = (TextView)view.findViewById(R.id.phone_num_m);
         TextView email = (TextView)view.findViewById(R.id.email_m);
+        games = (TextView)view.findViewById(R.id.games_m);
+        ArrayList<String> gameIds = getArguments().getStringArrayList("saleIds");
+
 
         name.setText("Name: " + getArguments().getString("fName") + " " + getArguments().getString("lName"));
         phone.setText("Phone Number: " + getArguments().getString("phone"));
         email.setText("Email Address: " + getArguments().getString("email"));
+
+        for(String game:gameIds){
+            DBWrapper.getInstance().getSale(game, new DBWrapper.SaleTransactionListener() {
+                @Override
+                public void onComplete(Sale sale) {
+                    gameList += (sale.getName() + ", ");
+                    games.setText("Games: " + gameList);
+                }
+
+                @Override
+                public void onFailure(FailureReason reason) {
+
+                }
+            });
+        }
 
     }
 
@@ -75,7 +96,7 @@ public class MatchContactFragment extends DialogFragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    public static MatchContactFragment newInstance(String fName, String lName, String phone, String email, String userId){
+    public static MatchContactFragment newInstance(String fName, String lName, String phone, String email, String userId, ArrayList<String> saleIds){
         MatchContactFragment mcf = new MatchContactFragment();
         Bundle args = new Bundle();
         args.putString("fName",fName);
@@ -83,6 +104,7 @@ public class MatchContactFragment extends DialogFragment {
         args.putString("phone",phone);
         args.putString("email",email);
         args.putString("userId", userId);
+        args.putStringArrayList("saleIds", saleIds);
         mcf.setArguments(args);
         return mcf;
 

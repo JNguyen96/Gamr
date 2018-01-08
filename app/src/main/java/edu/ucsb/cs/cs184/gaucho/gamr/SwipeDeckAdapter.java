@@ -1,6 +1,9 @@
 package edu.ucsb.cs.cs184.gaucho.gamr;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,9 +80,12 @@ public class SwipeDeckAdapter extends BaseAdapter {
         }
 
         lock.readLock().lock();
-
-        int id = context.getResources().getIdentifier("edu.ucsb.cs.cs184.gaucho.gamr:drawable/" + saleItems.get(position).name, null, null);
-        ((ImageView) v.findViewById(R.id.imageView)).setImageBitmap(saleItems.get(position).getImage());
+        if(!(saleItems.get(position).getEncodedBM().equals("POISON"))) {
+            byte[] decodedString = Base64.decode(saleItems.get(position).getEncodedBM(), Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            ((ImageView) v.findViewById(R.id.imageView)).setImageBitmap(decodedByte);
+        }
+//        ((ImageView) v.findViewById(R.id.imageView)).setImageBitmap(saleItems.get(position).getImage());
         ((TextView) v.findViewById(R.id.textView2)).setText(saleItems.get(position).getDescription());
         ((TextView) v.findViewById(R.id.textView)).setText(saleItems.get(position).getName());
 
